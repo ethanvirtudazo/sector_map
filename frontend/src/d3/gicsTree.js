@@ -11,8 +11,6 @@ function normalizeNames(node) {
  * Builds a D3 tree layout and returns both the root and its dimensions
  */
 export default function gicsTree(data, dx = 20, dy = 180) {
-
-
   const raw = JSON.parse(JSON.stringify(data));
   raw.name = raw.root;
   normalizeNames(raw);

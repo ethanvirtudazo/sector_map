@@ -1,12 +1,13 @@
 {
   "root": "GICS",
-  "level:sectors": [
+  "level": "sectors",
+  "children": [
     {
       "sector": "10 Energy",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "1010 Energy",
-          "level:industries": [
+          "children": [
             {
               "industry": "101010 Energy Equipment & Services"
             },
@@ -16,39 +17,13 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "Energy",
-      "level:industry_group": [
-        {
-          "industry_group": "1010 Energy",
-          "level:industries": [
-            {
-              "industry": "101020 Oil, Gas & Consumable Fuels"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "sector": "15 Materials",
-      "level:industry_group": [
-        {
-          "industry_group": "1510 Materials",
-          "level:industries": [
-            {
-              "industry": "151010 Chemicals"
-            }
-          ]
-        }
-      ]
-    },
+    },    
     {
       "sector": "Materials",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "1510 Materials",
-          "level:industries": [
+          "children": [
             {
               "industry": "151010 Chemicals"
             },
@@ -67,26 +42,16 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "20 Industrials",
-      "level:industry_group": [
-        {
-          "industry_group": "2010 Capital Goods",
-          "level:industries": [
-            {
-              "industry": "201010 Aerospace & Defense"
-            }
-          ]
-        }
-      ]
-    },
+    },    
     {
       "sector": "Industrials",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "2010 Capital Goods",
-          "level:industries": [
+          "children": [
+            {
+              "industry": "201010 Aerospace & Defense"
+            },
             {
               "industry": "201020 Building Products"
             },
@@ -109,7 +74,7 @@
         },
         {
           "industry_group": "2020 Commercial  & Professional Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "202010 Commercial Services & Supplies"
             },
@@ -120,7 +85,7 @@
         },
         {
           "industry_group": "2030 Transportation",
-          "level:industries": [
+          "children": [
             {
               "industry": "203010 Air Freight & Logistics"
             },
@@ -139,26 +104,13 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "25 Consumer Discretionary",
-      "level:industry_group": [
-        {
-          "industry_group": "2510 Automobiles & Components",
-          "level:industries": [
-            {
-              "industry": "251010 Automobile Components (New Name)"
-            }
-          ]
-        }
-      ]
-    },
+    },   
     {
       "sector": "Consumer Discretionary",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "2510 Automobiles & Components",
-          "level:industries": [
+          "children": [
             {
               "industry": "251010 Automobile Components (New Name)"
             },
@@ -169,7 +121,7 @@
         },
         {
           "industry_group": "2520 Consumer Durables & Apparel",
-          "level:industries": [
+          "children": [
             {
               "industry": "252010 Household Durables"
             },
@@ -183,7 +135,7 @@
         },
         {
           "industry_group": "2530 Consumer Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "253010 Hotels, Restaurants & Leisure"
             },
@@ -194,7 +146,7 @@
         },
         {
           "industry_group": "2550 Consumer Discretionary Distribution & Retail (New Name)",
-          "level:industries": [
+          "children": [
             {
               "industry": "255010 Distributors"
             },
@@ -210,26 +162,13 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "30 Consumer Staples",
-      "level:industry_group": [
-        {
-          "industry_group": "3010 Consumer Staples Distribution & Retail (New Name)",
-          "level:industries": [
-            {
-              "industry": "301010 Consumer Staples Distribution & Retail (New Name)"
-            }
-          ]
-        }
-      ]
-    },
+    },    
     {
       "sector": "Consumer Staples",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "3010 Consumer Staples Distribution & Retail (New Name)",
-          "level:industries": [
+          "children": [
             {
               "industry": "301010 Consumer Staples Distribution & Retail (New Name)"
             }
@@ -237,7 +176,7 @@
         },
         {
           "industry_group": "3020 Food, Beverage & Tobacco",
-          "level:industries": [
+          "children": [
             {
               "industry": "302010 Beverages"
             },
@@ -251,7 +190,7 @@
         },
         {
           "industry_group": "3030 Household & Personal Products",
-          "level:industries": [
+          "children": [
             {
               "industry": "303010 Household Products"
             },
@@ -261,26 +200,13 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "35 Health Care",
-      "level:industry_group": [
-        {
-          "industry_group": "3510 Health Care Equipment & Services",
-          "level:industries": [
-            {
-              "industry": "351010 Health Care Equipment & Supplies"
-            }
-          ]
-        }
-      ]
-    },
+    },        
     {
       "sector": "Health Care",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "3510 Health Care Equipment & Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "351010 Health Care Equipment & Supplies"
             },
@@ -294,7 +220,7 @@
         },
         {
           "industry_group": "3520 Pharmaceuticals, Biotechnology & Life Sciences",
-          "level:industries": [
+          "children": [
             {
               "industry": "352010 Biotechnology"
             },
@@ -310,10 +236,10 @@
     },
     {
       "sector": "40 Financials",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "4010 Banks",
-          "level:industries": [
+          "children": [
             {
               "industry": "401010 Banks"
             }
@@ -323,10 +249,10 @@
     },
     {
       "sector": "Financials",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "4010 Banks",
-          "level:industries": [
+          "children": [
             {
               "industry": "401010 Banks"
             },
@@ -337,7 +263,7 @@
         },
         {
           "industry_group": "4020 Financial Services (New Name)",
-          "level:industries": [
+          "children": [
             {
               "industry": "402010  Financial Services (New Name)"
             },
@@ -354,7 +280,7 @@
         },
         {
           "industry_group": "4030 Insurance",
-          "level:industries": [
+          "children": [
             {
               "industry": "403010 Insurance"
             }
@@ -364,10 +290,10 @@
     },
     {
       "sector": "45 Information Technology",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "4510 Software & Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "451020 IT Services"
             }
@@ -377,10 +303,10 @@
     },
     {
       "sector": "Information Technology",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "4510 Software & Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "451020 IT Services"
             },
@@ -391,7 +317,7 @@
         },
         {
           "industry_group": "4520 Technology Hardware & Equipment",
-          "level:industries": [
+          "children": [
             {
               "industry": "452010 Communications Equipment"
             },
@@ -405,7 +331,7 @@
         },
         {
           "industry_group": "4530 Semiconductors & Semiconductor Equipment",
-          "level:industries": [
+          "children": [
             {
               "industry": "453010 Semiconductors & Semiconductor Equipment"
             }
@@ -415,10 +341,10 @@
     },
     {
       "sector": "50 Communication Services",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "5010 Telecommunication Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "501010 Diversified Telecommunication Services"
             }
@@ -428,10 +354,10 @@
     },
     {
       "sector": "Communication Services",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "5010 Telecommunication Services",
-          "level:industries": [
+          "children": [
             {
               "industry": "501010 Diversified Telecommunication Services"
             },
@@ -442,7 +368,7 @@
         },
         {
           "industry_group": "5020 Media & Entertainment",
-          "level:industries": [
+          "children": [
             {
               "industry": "502010 Media"
             },
@@ -458,10 +384,10 @@
     },
     {
       "sector": "55 Utilities",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "5510 Utilities",
-          "level:industries": [
+          "children": [
             {
               "industry": "551010 Electric Utilities"
             }
@@ -471,10 +397,10 @@
     },
     {
       "sector": "Utilities",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "5510 Utilities",
-          "level:industries": [
+          "children": [
             {
               "industry": "551020 Gas Utilities"
             },
@@ -493,10 +419,10 @@
     },
     {
       "sector": "60 Real Estate",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "6010 Equity Real Estate Investment Trusts (REITs) (New Name)",
-          "level:industries": [
+          "children": [
             {
               "industry": "601010 Diversified REITs (New Name)"
             }
@@ -506,10 +432,10 @@
     },
     {
       "sector": "Real Estate",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "6010 Equity Real Estate Investment Trusts (REITs) (New Name)",
-          "level:industries": [
+          "children": [
             {
               "industry": "601025 Industrial REITs (New)"
             },
@@ -535,7 +461,7 @@
         },
         {
           "industry_group": "6020 Real Estate Management & Development (New)",
-          "level:industries": [
+          "children": [
             {
               "industry": "602010 Real Estate Management & Development (New Code)"
             }
@@ -545,10 +471,10 @@
     },
     {
       "sector": "",
-      "level:industry_group": [
+      "children": [
         {
           "industry_group": "",
-          "level:industries": [
+          "children": [
             {
               "industry": ""
             }

@@ -1,10 +1,18 @@
-import React from "react";
-import GICSRender from "./gicsRender.js";
+import React, { useState } from "react";
+import GicsRender from "./gicsRender.js";
 
 const App = () => {
-  return (
-    <GICSRender />
-  );
+    const [selectedNode, setSelectedNode] = useState(null);
+    const [expandedNodes, setExpandedNodes] = useState(new Set());
+
+    return (
+        <GicsRender 
+            selectedNode={selectedNode}
+            setSelectedNode={setSelectedNode}
+            expandedNodes={expandedNodes}
+            setExpandedNodes={setExpandedNodes}
+        />
+    );
 };
 
 export default App;
