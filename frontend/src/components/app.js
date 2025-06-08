@@ -1,9 +1,9 @@
 import React from "react";
-import GicsTreeChart from "./test";
+import GICSRender from "./gicsRender.js";
 
 const App = () => {
   return (
-    <GicsTreeChart />
+    <GICSRender />
   );
 };
 

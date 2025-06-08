@@ -1,0 +1,522 @@
+export default {    
+    "root": "GICS",
+    "level": "sectors",
+    "children": [
+      {
+        "sector": " Energy",
+        "children": [
+          {
+            "industry_group": " Energy",
+            "children": [
+              {
+                "industry": " Energy Equipment & Services"
+              },
+              {
+                "industry": " Oil, Gas & Consumable Fuels"
+              }
+            ]
+          }
+        ]
+      },            
+      {
+        "sector": "Materials",
+        "children": [
+          {
+            "industry_group": " Materials",
+            "children": [
+              {
+                "industry": " Chemicals"
+              },
+              {
+                "industry": " Construction Materials"
+              },
+              {
+                "industry": " Containers & Packaging"
+              },
+              {
+                "industry": " Metals & Mining"
+              },
+              {
+                "industry": " Paper & Forest Products"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Industrials",
+        "children": [
+          {
+            "industry_group": " Capital Goods",
+            "children": [
+              {
+                "industry": " Aerospace & Defense"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Industrials",
+        "children": [
+          {
+            "industry_group": " Capital Goods",
+            "children": [
+              {
+                "industry": " Building Products"
+              },
+              {
+                "industry": " Construction & Engineering"
+              },
+              {
+                "industry": " Electrical Equipment"
+              },
+              {
+                "industry": " Industrial Conglomerates"
+              },
+              {
+                "industry": " Machinery"
+              },
+              {
+                "industry": " Trading Companies & Distributors"
+              }
+            ]
+          },
+          {
+            "industry_group": " Commercial  & Professional Services",
+            "children": [
+              {
+                "industry": " Commercial Services & Supplies"
+              },
+              {
+                "industry": " Professional Services"
+              }
+            ]
+          },
+          {
+            "industry_group": " Transportation",
+            "children": [
+              {
+                "industry": " Air Freight & Logistics"
+              },
+              {
+                "industry": " Passenger Airlines (New name)"
+              },
+              {
+                "industry": " Marine Transportation (New Name)"
+              },
+              {
+                "industry": " Ground Transportation (New Name)"
+              },
+              {
+                "industry": " Transportation Infrastructure"
+              }
+            ]
+          }
+        ]
+      },      
+      {
+        "sector": "Consumer Discretionary",
+        "children": [
+          {
+            "industry_group": " Automobiles & Components",
+            "children": [
+              {
+                "industry": " Automobile Components (New Name)"
+              },
+              {
+                "industry": " Automobiles"
+              }
+            ]
+          },
+          {
+            "industry_group": " Consumer Durables & Apparel",
+            "children": [
+              {
+                "industry": " Household Durables"
+              },
+              {
+                "industry": " Leisure Products"
+              },
+              {
+                "industry": " Textiles, Apparel & Luxury Goods"
+              }
+            ]
+          },
+          {
+            "industry_group": " Consumer Services",
+            "children": [
+              {
+                "industry": " Hotels, Restaurants & Leisure"
+              },
+              {
+                "industry": " Diversified Consumer Services"
+              }
+            ]
+          },
+          {
+            "industry_group": " Consumer Discretionary Distribution & Retail (New Name)",
+            "children": [
+              {
+                "industry": " Distributors"
+              },
+              {
+                "industry": " Internet & Direct Marketing Retail (Discontinued)"
+              },
+              {
+                "industry": " Broadline Retail (New Name)"
+              },
+              {
+                "industry": " Specialty Retail"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Consumer Staples",
+        "children": [
+          {
+            "industry_group": " Consumer Staples Distribution & Retail (New Name)",
+            "children": [
+              {
+                "industry": " Consumer Staples Distribution & Retail (New Name)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Consumer Staples",
+        "children": [
+          {
+            "industry_group": " Consumer Staples Distribution & Retail (New Name)",
+            "children": [
+              {
+                "industry": " Consumer Staples Distribution & Retail (New Name)"
+              }
+            ]
+          },
+          {
+            "industry_group": " Food, Beverage & Tobacco",
+            "children": [
+              {
+                "industry": " Beverages"
+              },
+              {
+                "industry": " Food Products"
+              },
+              {
+                "industry": " Tobacco"
+              }
+            ]
+          },
+          {
+            "industry_group": " Household & Personal Products",
+            "children": [
+              {
+                "industry": " Household Products"
+              },
+              {
+                "industry": " Personal Care Products (New Name)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Health Care",
+        "children": [
+          {
+            "industry_group": " Health Care Equipment & Services",
+            "children": [
+              {
+                "industry": " Health Care Equipment & Supplies"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Health Care",
+        "children": [
+          {
+            "industry_group": " Health Care Equipment & Services",
+            "children": [
+              {
+                "industry": " Health Care Equipment & Supplies"
+              },
+              {
+                "industry": " Health Care Providers & Services"
+              },
+              {
+                "industry": " Health Care Technology"
+              }
+            ]
+          },
+          {
+            "industry_group": " Pharmaceuticals, Biotechnology & Life Sciences",
+            "children": [
+              {
+                "industry": " Biotechnology"
+              },
+              {
+                "industry": " Pharmaceuticals"
+              },
+              {
+                "industry": " Life Sciences Tools & Services"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Financials",
+        "children": [
+          {
+            "industry_group": " Banks",
+            "children": [
+              {
+                "industry": " Banks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Financials",
+        "children": [
+          {
+            "industry_group": " Banks",
+            "children": [
+              {
+                "industry": " Banks"
+              },
+              {
+                "industry": " Thrifts & Mortgage Finance (Discontinued)"
+              }
+            ]
+          },
+          {
+            "industry_group": " Financial Services (New Name)",
+            "children": [
+              {
+                "industry": "  Financial Services (New Name)"
+              },
+              {
+                "industry": " Consumer Finance"
+              },
+              {
+                "industry": " Capital Markets"
+              },
+              {
+                "industry": " Mortgage Real Estate Investment\nTrusts (REITs)"
+              }
+            ]
+          },
+          {
+            "industry_group": " Insurance",
+            "children": [
+              {
+                "industry": " Insurance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Information Technology",
+        "children": [
+          {
+            "industry_group": " Software & Services",
+            "children": [
+              {
+                "industry": " IT Services"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Information Technology",
+        "children": [
+          {
+            "industry_group": " Software & Services",
+            "children": [
+              {
+                "industry": " IT Services"
+              },
+              {
+                "industry": " Software"
+              }
+            ]
+          },
+          {
+            "industry_group": " Technology Hardware & Equipment",
+            "children": [
+              {
+                "industry": " Communications Equipment"
+              },
+              {
+                "industry": " Technology Hardware, Storage & Peripherals"
+              },
+              {
+                "industry": " Electronic Equipment, Instruments & Components"
+              }
+            ]
+          },
+          {
+            "industry_group": " Semiconductors & Semiconductor Equipment",
+            "children": [
+              {
+                "industry": " Semiconductors & Semiconductor Equipment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Communication Services",
+        "children": [
+          {
+            "industry_group": " Telecommunication Services",
+            "children": [
+              {
+                "industry": " Diversified Telecommunication Services"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Communication Services",
+        "children": [
+          {
+            "industry_group": " Telecommunication Services",
+            "children": [
+              {
+                "industry": " Diversified Telecommunication Services"
+              },
+              {
+                "industry": " Wireless Telecommunication Services"
+              }
+            ]
+          },
+          {
+            "industry_group": " Media & Entertainment",
+            "children": [
+              {
+                "industry": " Media"
+              },
+              {
+                "industry": " Entertainment"
+              },
+              {
+                "industry": " Interactive Media & Services"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Utilities",
+        "children": [
+          {
+            "industry_group": " Utilities",
+            "children": [
+              {
+                "industry": " Electric Utilities"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Utilities",
+        "children": [
+          {
+            "industry_group": " Utilities",
+            "children": [
+              {
+                "industry": " Gas Utilities"
+              },
+              {
+                "industry": " Multi-Utilities"
+              },
+              {
+                "industry": " Water Utilities"
+              },
+              {
+                "industry": " Independent Power and Renewable Electricity Producers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": " Real Estate",
+        "children": [
+          {
+            "industry_group": " Equity Real Estate Investment Trusts (REITs) (New Name)",
+            "children": [
+              {
+                "industry": " Diversified REITs (New Name)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "Real Estate",
+        "children": [
+          {
+            "industry_group": " Equity Real Estate Investment Trusts (REITs) (New Name)",
+            "children": [
+              {
+                "industry": " Industrial REITs (New)"
+              },
+              {
+                "industry": " Hotel & Resort REITs (New)"
+              },
+              {
+                "industry": " Office REITs (New)"
+              },
+              {
+                "industry": " Health Care REITs (New)"
+              },
+              {
+                "industry": " Residential REITs (New)"
+              },
+              {
+                "industry": " Retail REITs (New)"
+              },
+              {
+                "industry": " Specialized REITs (New)"
+              }
+            ]
+          },
+          {
+            "industry_group": " Real Estate Management & Development (New)",
+            "children": [
+              {
+                "industry": " Real Estate Management & Development (New Code)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sector": "",
+        "children": [
+          {
+            "industry_group": "",
+            "children": [
+              {
+                "industry": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
