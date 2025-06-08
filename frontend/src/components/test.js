@@ -1,144 +1,97 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import data from "../../data/test.json"; // adjust path as needed
+import data from "../../data/test.json";
 
 const GicsTreeChart = () => {
   const chartRef = useRef();
 
   useEffect(() => {
     const container = chartRef.current;
-
-    // Clean previous chart
+    if (!container) return;
     container.innerHTML = "";
 
-    // === All the D3 code goes here ===
-    const width = 928;
-    const marginTop = 10;
-    const marginRight = 10;
-    const marginBottom = 10;
-    const marginLeft = 40;
+    const marginTop = 20;
+    const marginRight = 100;
+    const marginBottom = 20;
+    const marginLeft = 100;
+    const dx = 10; // horizontal spacing
+    const dy = 200; // vertical spacing between levels
+
+    function normalizeNames(node) {
+      if (node.sector) node.name = node.sector;
+      if (node.industry_group) node.name = node.industry_group;
+      if (node.industry) node.name = node.industry;
+      if (node.children) node.children.forEach(normalizeNames);
+    }
+    normalizeNames(data);
 
     const root = d3.hierarchy(data);
-    const dx = 10;
-    const dy = (width - marginRight - marginLeft) / (1 + root.height);
-
     const tree = d3.tree().nodeSize([dx, dy]);
-    const diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
+    const diagonal = d3.linkVertical().x(d => d.x).y(d => d.y);
+
+    tree(root);
+
+    let x0 = Infinity;
+    let x1 = -Infinity;
+    root.each(d => {
+      if (d.x < x0) x0 = d.x;
+      if (d.x > x1) x1 = d.x;
+    });
+
+    const width = x1 - x0 + marginLeft + marginRight;
+    const height = root.height * dy + marginTop + marginBottom;
 
     const svg = d3.create("svg")
       .attr("width", width)
-      .attr("height", dx)
-      .attr("viewBox", [-marginLeft, -marginTop, width, dx])
-      .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif; user-select: none;");
+      .attr("height", height)
+      .attr("viewBox", [x0 - marginLeft, 0, width, height])
+      .attr("style", "display: block; margin: auto; font: 10px sans-serif; user-select: none;");
 
-    const gLink = svg.append("g")
+    svg.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
       .attr("stroke-opacity", 0.4)
-      .attr("stroke-width", 1.5);
+      .attr("stroke-width", 1.5)
+      .selectAll("path")
+      .data(root.links())
+      .join("path")
+      .attr("d", diagonal);
 
-    const gNode = svg.append("g")
-      .attr("cursor", "pointer")
-      .attr("pointer-events", "all");
+    const node = svg.append("g")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-width", 3)
+      .selectAll("g")
+      .data(root.descendants())
+      .join("g")
+      .attr("transform", d => `translate(${d.x},${d.y})`);
 
-    function update(event, source) {
-      const duration = event?.altKey ? 2500 : 250;
-      const nodes = root.descendants().reverse();
-      const links = root.links();
+    node.append("circle")
+      .attr("fill", d => d.children ? "#555" : "#999")
+      .attr("r", 3);
 
-      tree(root);
-
-      let left = root;
-      let right = root;
-      root.eachBefore(node => {
-        if (node.x < left.x) left = node;
-        if (node.x > right.x) right = node;
-      });
-
-      const height = right.x - left.x + marginTop + marginBottom;
-
-      const transition = svg.transition()
-        .duration(duration)
-        .attr("height", height)
-        .attr("viewBox", [-marginLeft, left.x - marginTop, width, height])
-        .tween("resize", window.ResizeObserver ? null : () => () => svg.dispatch("toggle"));
-
-      const node = gNode.selectAll("g")
-        .data(nodes, d => d.id);
-
-      const nodeEnter = node.enter().append("g")
-        .attr("transform", d => `translate(${source.y0},${source.x0})`)
-        .attr("fill-opacity", 0)
-        .attr("stroke-opacity", 0)
-        .on("click", (event, d) => {
-          d.children = d.children ? null : d._children;
-          update(event, d);
-        });
-
-      nodeEnter.append("circle")
-        .attr("r", 2.5)
-        .attr("fill", d => d._children ? "#555" : "#999")
-        .attr("stroke-width", 10);
-
-      nodeEnter.append("text")
-        .attr("dy", "0.31em")
-        .attr("x", d => d._children ? -6 : 6)
-        .attr("text-anchor", d => d._children ? "end" : "start")
-        .text(d => d.data.name)
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-width", 3)
-        .attr("stroke", "white")
-        .attr("paint-order", "stroke");
-
-      node.merge(nodeEnter).transition(transition)
-        .attr("transform", d => `translate(${d.y},${d.x})`)
-        .attr("fill-opacity", 1)
-        .attr("stroke-opacity", 1);
-
-      node.exit().transition(transition).remove()
-        .attr("transform", d => `translate(${source.y},${source.x})`)
-        .attr("fill-opacity", 0)
-        .attr("stroke-opacity", 0);
-
-      const link = gLink.selectAll("path")
-        .data(links, d => d.target.id);
-
-      const linkEnter = link.enter().append("path")
-        .attr("d", d => {
-          const o = { x: source.x0, y: source.y0 };
-          return diagonal({ source: o, target: o });
-        });
-
-      link.merge(linkEnter).transition(transition)
-        .attr("d", diagonal);
-
-      link.exit().transition(transition).remove()
-        .attr("d", d => {
-          const o = { x: source.x, y: source.y };
-          return diagonal({ source: o, target: o });
-        });
-
-      root.eachBefore(d => {
-        d.x0 = d.x;
-        d.y0 = d.y;
-      });
-    }
-
-    root.x0 = dy / 2;
-    root.y0 = 0;
-    root.descendants().forEach((d, i) => {
-      d.id = i;
-      d._children = d.children;
-      if (d.depth && d.data.name && d.data.name.length !== 7) d.children = null;
-    });
-
-    update(null, root);
+    node.append("text")
+      .attr("dy", "0.31em")
+      .attr("y", d => d.children ? -6 : 6)
+      .attr("text-anchor", "middle")
+      .text(d => d.data.name)
+      .clone(true).lower()
+      .attr("stroke", "white");
 
     container.appendChild(svg.node());
-    // === End D3 code ===
-
   }, []);
-  return <div ref={chartRef} />;
+
+  return (
+    <div style={{
+      width: "100vw",
+      height: "100vh",
+      overflow: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <div ref={chartRef} />
+    </div>
+  );
 };
 
 export default GicsTreeChart;

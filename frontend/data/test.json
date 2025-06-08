@@ -1,6 +1,5 @@
 {
-    "root": "GICS",
-    "level": "sectors",
+    "root": "GICS", 
     "children": [
       {
         "sector": "10 Energy",

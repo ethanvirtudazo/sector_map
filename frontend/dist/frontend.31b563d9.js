@@ -18446,7 +18446,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _d3 = require("d3");
-var _testJson = require("../../data/test.json"); // adjust path as needed
+var _testJson = require("../../data/test.json");
 var _testJsonDefault = parcelHelpers.interopDefault(_testJson);
 var _s = $RefreshSig$();
 const GicsTreeChart = ()=>{
@@ -18454,101 +18454,68 @@ const GicsTreeChart = ()=>{
     const chartRef = (0, _react.useRef)();
     (0, _react.useEffect)(()=>{
         const container = chartRef.current;
-        // Clean previous chart
+        if (!container) return;
         container.innerHTML = "";
-        // === All the D3 code goes here ===
-        const width = 928;
-        const marginTop = 10;
-        const marginRight = 10;
-        const marginBottom = 10;
-        const marginLeft = 40;
+        const marginTop = 20;
+        const marginRight = 100;
+        const marginBottom = 20;
+        const marginLeft = 100;
+        const dx = 10; // horizontal spacing
+        const dy = 200; // vertical spacing between levels
+        function normalizeNames(node) {
+            if (node.sector) node.name = node.sector;
+            if (node.industry_group) node.name = node.industry_group;
+            if (node.industry) node.name = node.industry;
+            if (node.children) node.children.forEach(normalizeNames);
+        }
+        normalizeNames((0, _testJsonDefault.default));
         const root = _d3.hierarchy((0, _testJsonDefault.default));
-        const dx = 10;
-        const dy = (width - marginRight - marginLeft) / (1 + root.height);
         const tree = _d3.tree().nodeSize([
             dx,
             dy
         ]);
-        const diagonal = _d3.linkHorizontal().x((d)=>d.y).y((d)=>d.x);
-        const svg = _d3.create("svg").attr("width", width).attr("height", dx).attr("viewBox", [
-            -marginLeft,
-            -marginTop,
-            width,
-            dx
-        ]).attr("style", "max-width: 100%; height: auto; font: 10px sans-serif; user-select: none;");
-        const gLink = svg.append("g").attr("fill", "none").attr("stroke", "#555").attr("stroke-opacity", 0.4).attr("stroke-width", 1.5);
-        const gNode = svg.append("g").attr("cursor", "pointer").attr("pointer-events", "all");
-        function update(event, source) {
-            const duration = event?.altKey ? 2500 : 250;
-            const nodes = root.descendants().reverse();
-            const links = root.links();
-            tree(root);
-            let left = root;
-            let right = root;
-            root.eachBefore((node)=>{
-                if (node.x < left.x) left = node;
-                if (node.x > right.x) right = node;
-            });
-            const height = right.x - left.x + marginTop + marginBottom;
-            const transition = svg.transition().duration(duration).attr("height", height).attr("viewBox", [
-                -marginLeft,
-                left.x - marginTop,
-                width,
-                height
-            ]).tween("resize", window.ResizeObserver ? null : ()=>()=>svg.dispatch("toggle"));
-            const node = gNode.selectAll("g").data(nodes, (d)=>d.id);
-            const nodeEnter = node.enter().append("g").attr("transform", (d)=>`translate(${source.y0},${source.x0})`).attr("fill-opacity", 0).attr("stroke-opacity", 0).on("click", (event, d)=>{
-                d.children = d.children ? null : d._children;
-                update(event, d);
-            });
-            nodeEnter.append("circle").attr("r", 2.5).attr("fill", (d)=>d._children ? "#555" : "#999").attr("stroke-width", 10);
-            nodeEnter.append("text").attr("dy", "0.31em").attr("x", (d)=>d._children ? -6 : 6).attr("text-anchor", (d)=>d._children ? "end" : "start").text((d)=>d.data.name).attr("stroke-linejoin", "round").attr("stroke-width", 3).attr("stroke", "white").attr("paint-order", "stroke");
-            node.merge(nodeEnter).transition(transition).attr("transform", (d)=>`translate(${d.y},${d.x})`).attr("fill-opacity", 1).attr("stroke-opacity", 1);
-            node.exit().transition(transition).remove().attr("transform", (d)=>`translate(${source.y},${source.x})`).attr("fill-opacity", 0).attr("stroke-opacity", 0);
-            const link = gLink.selectAll("path").data(links, (d)=>d.target.id);
-            const linkEnter = link.enter().append("path").attr("d", (d)=>{
-                const o = {
-                    x: source.x0,
-                    y: source.y0
-                };
-                return diagonal({
-                    source: o,
-                    target: o
-                });
-            });
-            link.merge(linkEnter).transition(transition).attr("d", diagonal);
-            link.exit().transition(transition).remove().attr("d", (d)=>{
-                const o = {
-                    x: source.x,
-                    y: source.y
-                };
-                return diagonal({
-                    source: o,
-                    target: o
-                });
-            });
-            root.eachBefore((d)=>{
-                d.x0 = d.x;
-                d.y0 = d.y;
-            });
-        }
-        root.x0 = dy / 2;
-        root.y0 = 0;
-        root.descendants().forEach((d, i)=>{
-            d.id = i;
-            d._children = d.children;
-            if (d.depth && d.data.name && d.data.name.length !== 7) d.children = null;
+        const diagonal = _d3.linkVertical().x((d)=>d.x).y((d)=>d.y);
+        tree(root);
+        let x0 = Infinity;
+        let x1 = -Infinity;
+        root.each((d)=>{
+            if (d.x < x0) x0 = d.x;
+            if (d.x > x1) x1 = d.x;
         });
-        update(null, root);
+        const width = x1 - x0 + marginLeft + marginRight;
+        const height = root.height * dy + marginTop + marginBottom;
+        const svg = _d3.create("svg").attr("width", width).attr("height", height).attr("viewBox", [
+            x0 - marginLeft,
+            0,
+            width,
+            height
+        ]).attr("style", "display: block; margin: auto; font: 10px sans-serif; user-select: none;");
+        svg.append("g").attr("fill", "none").attr("stroke", "#555").attr("stroke-opacity", 0.4).attr("stroke-width", 1.5).selectAll("path").data(root.links()).join("path").attr("d", diagonal);
+        const node = svg.append("g").attr("stroke-linejoin", "round").attr("stroke-width", 3).selectAll("g").data(root.descendants()).join("g").attr("transform", (d)=>`translate(${d.x},${d.y})`);
+        node.append("circle").attr("fill", (d)=>d.children ? "#555" : "#999").attr("r", 3);
+        node.append("text").attr("dy", "0.31em").attr("y", (d)=>d.children ? -6 : 6).attr("text-anchor", "middle").text((d)=>d.data.name).clone(true).lower().attr("stroke", "white");
         container.appendChild(svg.node());
-    // === End D3 code ===
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        ref: chartRef
+        style: {
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+        },
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            ref: chartRef
+        }, void 0, false, {
+            fileName: "src/components/test.js",
+            lineNumber: 92,
+            columnNumber: 7
+        }, undefined)
     }, void 0, false, {
         fileName: "src/components/test.js",
-        lineNumber: 141,
-        columnNumber: 10
+        lineNumber: 84,
+        columnNumber: 5
     }, undefined);
 };
 _s(GicsTreeChart, "X+1SfQQ6xefXNU27aQW843M7cTw=");
@@ -41938,7 +41905,7 @@ function nopropagation(event) {
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ekzAW":[function(require,module,exports,__globalThis) {
-module.exports = JSON.parse("{\"root\":\"GICS\",\"level\":\"sectors\",\"children\":[{\"sector\":\"10 Energy\",\"children\":[{\"industry_group\":\"1010 Energy\",\"children\":[{\"industry\":\"101010 Energy Equipment & Services\"},{\"industry\":\"101020 Oil, Gas & Consumable Fuels\"}]}]},{\"sector\":\"Energy\",\"children\":[{\"industry_group\":\"1010 Energy\",\"children\":[{\"industry\":\"101020 Oil, Gas & Consumable Fuels\"}]}]},{\"sector\":\"15 Materials\",\"children\":[{\"industry_group\":\"1510 Materials\",\"children\":[{\"industry\":\"151010 Chemicals\"}]}]},{\"sector\":\"Materials\",\"children\":[{\"industry_group\":\"1510 Materials\",\"children\":[{\"industry\":\"151010 Chemicals\"},{\"industry\":\"151020 Construction Materials\"},{\"industry\":\"151030 Containers & Packaging\"},{\"industry\":\"151040 Metals & Mining\"},{\"industry\":\"151050 Paper & Forest Products\"}]}]},{\"sector\":\"20 Industrials\",\"children\":[{\"industry_group\":\"2010 Capital Goods\",\"children\":[{\"industry\":\"201010 Aerospace & Defense\"}]}]},{\"sector\":\"Industrials\",\"children\":[{\"industry_group\":\"2010 Capital Goods\",\"children\":[{\"industry\":\"201020 Building Products\"},{\"industry\":\"201030 Construction & Engineering\"},{\"industry\":\"201040 Electrical Equipment\"},{\"industry\":\"201050 Industrial Conglomerates\"},{\"industry\":\"201060 Machinery\"},{\"industry\":\"201070 Trading Companies & Distributors\"}]},{\"industry_group\":\"2020 Commercial  & Professional Services\",\"children\":[{\"industry\":\"202010 Commercial Services & Supplies\"},{\"industry\":\"202020 Professional Services\"}]},{\"industry_group\":\"2030 Transportation\",\"children\":[{\"industry\":\"203010 Air Freight & Logistics\"},{\"industry\":\"203020 Passenger Airlines (New name)\"},{\"industry\":\"203030 Marine Transportation (New Name)\"},{\"industry\":\"203040 Ground Transportation (New Name)\"},{\"industry\":\"203050 Transportation Infrastructure\"}]}]},{\"sector\":\"25 Consumer Discretionary\",\"children\":[{\"industry_group\":\"2510 Automobiles & Components\",\"children\":[{\"industry\":\"251010 Automobile Components (New Name)\"}]}]},{\"sector\":\"Consumer Discretionary\",\"children\":[{\"industry_group\":\"2510 Automobiles & Components\",\"children\":[{\"industry\":\"251010 Automobile Components (New Name)\"},{\"industry\":\"251020 Automobiles\"}]},{\"industry_group\":\"2520 Consumer Durables & Apparel\",\"children\":[{\"industry\":\"252010 Household Durables\"},{\"industry\":\"252020 Leisure Products\"},{\"industry\":\"252030 Textiles, Apparel & Luxury Goods\"}]},{\"industry_group\":\"2530 Consumer Services\",\"children\":[{\"industry\":\"253010 Hotels, Restaurants & Leisure\"},{\"industry\":\"253020 Diversified Consumer Services\"}]},{\"industry_group\":\"2550 Consumer Discretionary Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"255010 Distributors\"},{\"industry\":\"255020 Internet & Direct Marketing Retail (Discontinued)\"},{\"industry\":\"255030 Broadline Retail (New Name)\"},{\"industry\":\"255040 Specialty Retail\"}]}]},{\"sector\":\"30 Consumer Staples\",\"children\":[{\"industry_group\":\"3010 Consumer Staples Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"301010 Consumer Staples Distribution & Retail (New Name)\"}]}]},{\"sector\":\"Consumer Staples\",\"children\":[{\"industry_group\":\"3010 Consumer Staples Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"301010 Consumer Staples Distribution & Retail (New Name)\"}]},{\"industry_group\":\"3020 Food, Beverage & Tobacco\",\"children\":[{\"industry\":\"302010 Beverages\"},{\"industry\":\"302020 Food Products\"},{\"industry\":\"302030 Tobacco\"}]},{\"industry_group\":\"3030 Household & Personal Products\",\"children\":[{\"industry\":\"303010 Household Products\"},{\"industry\":\"303020 Personal Care Products (New Name)\"}]}]},{\"sector\":\"35 Health Care\",\"children\":[{\"industry_group\":\"3510 Health Care Equipment & Services\",\"children\":[{\"industry\":\"351010 Health Care Equipment & Supplies\"}]}]},{\"sector\":\"Health Care\",\"children\":[{\"industry_group\":\"3510 Health Care Equipment & Services\",\"children\":[{\"industry\":\"351010 Health Care Equipment & Supplies\"},{\"industry\":\"351020 Health Care Providers & Services\"},{\"industry\":\"351030 Health Care Technology\"}]},{\"industry_group\":\"3520 Pharmaceuticals, Biotechnology & Life Sciences\",\"children\":[{\"industry\":\"352010 Biotechnology\"},{\"industry\":\"352020 Pharmaceuticals\"},{\"industry\":\"352030 Life Sciences Tools & Services\"}]}]},{\"sector\":\"40 Financials\",\"children\":[{\"industry_group\":\"4010 Banks\",\"children\":[{\"industry\":\"401010 Banks\"}]}]},{\"sector\":\"Financials\",\"children\":[{\"industry_group\":\"4010 Banks\",\"children\":[{\"industry\":\"401010 Banks\"},{\"industry\":\"401020 Thrifts & Mortgage Finance (Discontinued)\"}]},{\"industry_group\":\"4020 Financial Services (New Name)\",\"children\":[{\"industry\":\"402010  Financial Services (New Name)\"},{\"industry\":\"402020 Consumer Finance\"},{\"industry\":\"402030 Capital Markets\"},{\"industry\":\"402040 Mortgage Real Estate Investment\\nTrusts (REITs)\"}]},{\"industry_group\":\"4030 Insurance\",\"children\":[{\"industry\":\"403010 Insurance\"}]}]},{\"sector\":\"45 Information Technology\",\"children\":[{\"industry_group\":\"4510 Software & Services\",\"children\":[{\"industry\":\"451020 IT Services\"}]}]},{\"sector\":\"Information Technology\",\"children\":[{\"industry_group\":\"4510 Software & Services\",\"children\":[{\"industry\":\"451020 IT Services\"},{\"industry\":\"451030 Software\"}]},{\"industry_group\":\"4520 Technology Hardware & Equipment\",\"children\":[{\"industry\":\"452010 Communications Equipment\"},{\"industry\":\"452020 Technology Hardware, Storage & Peripherals\"},{\"industry\":\"452030 Electronic Equipment, Instruments & Components\"}]},{\"industry_group\":\"4530 Semiconductors & Semiconductor Equipment\",\"children\":[{\"industry\":\"453010 Semiconductors & Semiconductor Equipment\"}]}]},{\"sector\":\"50 Communication Services\",\"children\":[{\"industry_group\":\"5010 Telecommunication Services\",\"children\":[{\"industry\":\"501010 Diversified Telecommunication Services\"}]}]},{\"sector\":\"Communication Services\",\"children\":[{\"industry_group\":\"5010 Telecommunication Services\",\"children\":[{\"industry\":\"501010 Diversified Telecommunication Services\"},{\"industry\":\"501020 Wireless Telecommunication Services\"}]},{\"industry_group\":\"5020 Media & Entertainment\",\"children\":[{\"industry\":\"502010 Media\"},{\"industry\":\"502020 Entertainment\"},{\"industry\":\"502030 Interactive Media & Services\"}]}]},{\"sector\":\"55 Utilities\",\"children\":[{\"industry_group\":\"5510 Utilities\",\"children\":[{\"industry\":\"551010 Electric Utilities\"}]}]},{\"sector\":\"Utilities\",\"children\":[{\"industry_group\":\"5510 Utilities\",\"children\":[{\"industry\":\"551020 Gas Utilities\"},{\"industry\":\"551030 Multi-Utilities\"},{\"industry\":\"551040 Water Utilities\"},{\"industry\":\"551050 Independent Power and Renewable Electricity Producers\"}]}]},{\"sector\":\"60 Real Estate\",\"children\":[{\"industry_group\":\"6010 Equity Real Estate Investment Trusts (REITs) (New Name)\",\"children\":[{\"industry\":\"601010 Diversified REITs (New Name)\"}]}]},{\"sector\":\"Real Estate\",\"children\":[{\"industry_group\":\"6010 Equity Real Estate Investment Trusts (REITs) (New Name)\",\"children\":[{\"industry\":\"601025 Industrial REITs (New)\"},{\"industry\":\"601030 Hotel & Resort REITs (New)\"},{\"industry\":\"601040 Office REITs (New)\"},{\"industry\":\"601050 Health Care REITs (New)\"},{\"industry\":\"601060 Residential REITs (New)\"},{\"industry\":\"601070 Retail REITs (New)\"},{\"industry\":\"601080 Specialized REITs (New)\"}]},{\"industry_group\":\"6020 Real Estate Management & Development (New)\",\"children\":[{\"industry\":\"602010 Real Estate Management & Development (New Code)\"}]}]},{\"sector\":\"\",\"children\":[{\"industry_group\":\"\",\"children\":[{\"industry\":\"\"}]}]}]}");
+module.exports = JSON.parse("{\"root\":\"GICS\",\"children\":[{\"sector\":\"10 Energy\",\"children\":[{\"industry_group\":\"1010 Energy\",\"children\":[{\"industry\":\"101010 Energy Equipment & Services\"},{\"industry\":\"101020 Oil, Gas & Consumable Fuels\"}]}]},{\"sector\":\"Energy\",\"children\":[{\"industry_group\":\"1010 Energy\",\"children\":[{\"industry\":\"101020 Oil, Gas & Consumable Fuels\"}]}]},{\"sector\":\"15 Materials\",\"children\":[{\"industry_group\":\"1510 Materials\",\"children\":[{\"industry\":\"151010 Chemicals\"}]}]},{\"sector\":\"Materials\",\"children\":[{\"industry_group\":\"1510 Materials\",\"children\":[{\"industry\":\"151010 Chemicals\"},{\"industry\":\"151020 Construction Materials\"},{\"industry\":\"151030 Containers & Packaging\"},{\"industry\":\"151040 Metals & Mining\"},{\"industry\":\"151050 Paper & Forest Products\"}]}]},{\"sector\":\"20 Industrials\",\"children\":[{\"industry_group\":\"2010 Capital Goods\",\"children\":[{\"industry\":\"201010 Aerospace & Defense\"}]}]},{\"sector\":\"Industrials\",\"children\":[{\"industry_group\":\"2010 Capital Goods\",\"children\":[{\"industry\":\"201020 Building Products\"},{\"industry\":\"201030 Construction & Engineering\"},{\"industry\":\"201040 Electrical Equipment\"},{\"industry\":\"201050 Industrial Conglomerates\"},{\"industry\":\"201060 Machinery\"},{\"industry\":\"201070 Trading Companies & Distributors\"}]},{\"industry_group\":\"2020 Commercial  & Professional Services\",\"children\":[{\"industry\":\"202010 Commercial Services & Supplies\"},{\"industry\":\"202020 Professional Services\"}]},{\"industry_group\":\"2030 Transportation\",\"children\":[{\"industry\":\"203010 Air Freight & Logistics\"},{\"industry\":\"203020 Passenger Airlines (New name)\"},{\"industry\":\"203030 Marine Transportation (New Name)\"},{\"industry\":\"203040 Ground Transportation (New Name)\"},{\"industry\":\"203050 Transportation Infrastructure\"}]}]},{\"sector\":\"25 Consumer Discretionary\",\"children\":[{\"industry_group\":\"2510 Automobiles & Components\",\"children\":[{\"industry\":\"251010 Automobile Components (New Name)\"}]}]},{\"sector\":\"Consumer Discretionary\",\"children\":[{\"industry_group\":\"2510 Automobiles & Components\",\"children\":[{\"industry\":\"251010 Automobile Components (New Name)\"},{\"industry\":\"251020 Automobiles\"}]},{\"industry_group\":\"2520 Consumer Durables & Apparel\",\"children\":[{\"industry\":\"252010 Household Durables\"},{\"industry\":\"252020 Leisure Products\"},{\"industry\":\"252030 Textiles, Apparel & Luxury Goods\"}]},{\"industry_group\":\"2530 Consumer Services\",\"children\":[{\"industry\":\"253010 Hotels, Restaurants & Leisure\"},{\"industry\":\"253020 Diversified Consumer Services\"}]},{\"industry_group\":\"2550 Consumer Discretionary Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"255010 Distributors\"},{\"industry\":\"255020 Internet & Direct Marketing Retail (Discontinued)\"},{\"industry\":\"255030 Broadline Retail (New Name)\"},{\"industry\":\"255040 Specialty Retail\"}]}]},{\"sector\":\"30 Consumer Staples\",\"children\":[{\"industry_group\":\"3010 Consumer Staples Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"301010 Consumer Staples Distribution & Retail (New Name)\"}]}]},{\"sector\":\"Consumer Staples\",\"children\":[{\"industry_group\":\"3010 Consumer Staples Distribution & Retail (New Name)\",\"children\":[{\"industry\":\"301010 Consumer Staples Distribution & Retail (New Name)\"}]},{\"industry_group\":\"3020 Food, Beverage & Tobacco\",\"children\":[{\"industry\":\"302010 Beverages\"},{\"industry\":\"302020 Food Products\"},{\"industry\":\"302030 Tobacco\"}]},{\"industry_group\":\"3030 Household & Personal Products\",\"children\":[{\"industry\":\"303010 Household Products\"},{\"industry\":\"303020 Personal Care Products (New Name)\"}]}]},{\"sector\":\"35 Health Care\",\"children\":[{\"industry_group\":\"3510 Health Care Equipment & Services\",\"children\":[{\"industry\":\"351010 Health Care Equipment & Supplies\"}]}]},{\"sector\":\"Health Care\",\"children\":[{\"industry_group\":\"3510 Health Care Equipment & Services\",\"children\":[{\"industry\":\"351010 Health Care Equipment & Supplies\"},{\"industry\":\"351020 Health Care Providers & Services\"},{\"industry\":\"351030 Health Care Technology\"}]},{\"industry_group\":\"3520 Pharmaceuticals, Biotechnology & Life Sciences\",\"children\":[{\"industry\":\"352010 Biotechnology\"},{\"industry\":\"352020 Pharmaceuticals\"},{\"industry\":\"352030 Life Sciences Tools & Services\"}]}]},{\"sector\":\"40 Financials\",\"children\":[{\"industry_group\":\"4010 Banks\",\"children\":[{\"industry\":\"401010 Banks\"}]}]},{\"sector\":\"Financials\",\"children\":[{\"industry_group\":\"4010 Banks\",\"children\":[{\"industry\":\"401010 Banks\"},{\"industry\":\"401020 Thrifts & Mortgage Finance (Discontinued)\"}]},{\"industry_group\":\"4020 Financial Services (New Name)\",\"children\":[{\"industry\":\"402010  Financial Services (New Name)\"},{\"industry\":\"402020 Consumer Finance\"},{\"industry\":\"402030 Capital Markets\"},{\"industry\":\"402040 Mortgage Real Estate Investment\\nTrusts (REITs)\"}]},{\"industry_group\":\"4030 Insurance\",\"children\":[{\"industry\":\"403010 Insurance\"}]}]},{\"sector\":\"45 Information Technology\",\"children\":[{\"industry_group\":\"4510 Software & Services\",\"children\":[{\"industry\":\"451020 IT Services\"}]}]},{\"sector\":\"Information Technology\",\"children\":[{\"industry_group\":\"4510 Software & Services\",\"children\":[{\"industry\":\"451020 IT Services\"},{\"industry\":\"451030 Software\"}]},{\"industry_group\":\"4520 Technology Hardware & Equipment\",\"children\":[{\"industry\":\"452010 Communications Equipment\"},{\"industry\":\"452020 Technology Hardware, Storage & Peripherals\"},{\"industry\":\"452030 Electronic Equipment, Instruments & Components\"}]},{\"industry_group\":\"4530 Semiconductors & Semiconductor Equipment\",\"children\":[{\"industry\":\"453010 Semiconductors & Semiconductor Equipment\"}]}]},{\"sector\":\"50 Communication Services\",\"children\":[{\"industry_group\":\"5010 Telecommunication Services\",\"children\":[{\"industry\":\"501010 Diversified Telecommunication Services\"}]}]},{\"sector\":\"Communication Services\",\"children\":[{\"industry_group\":\"5010 Telecommunication Services\",\"children\":[{\"industry\":\"501010 Diversified Telecommunication Services\"},{\"industry\":\"501020 Wireless Telecommunication Services\"}]},{\"industry_group\":\"5020 Media & Entertainment\",\"children\":[{\"industry\":\"502010 Media\"},{\"industry\":\"502020 Entertainment\"},{\"industry\":\"502030 Interactive Media & Services\"}]}]},{\"sector\":\"55 Utilities\",\"children\":[{\"industry_group\":\"5510 Utilities\",\"children\":[{\"industry\":\"551010 Electric Utilities\"}]}]},{\"sector\":\"Utilities\",\"children\":[{\"industry_group\":\"5510 Utilities\",\"children\":[{\"industry\":\"551020 Gas Utilities\"},{\"industry\":\"551030 Multi-Utilities\"},{\"industry\":\"551040 Water Utilities\"},{\"industry\":\"551050 Independent Power and Renewable Electricity Producers\"}]}]},{\"sector\":\"60 Real Estate\",\"children\":[{\"industry_group\":\"6010 Equity Real Estate Investment Trusts (REITs) (New Name)\",\"children\":[{\"industry\":\"601010 Diversified REITs (New Name)\"}]}]},{\"sector\":\"Real Estate\",\"children\":[{\"industry_group\":\"6010 Equity Real Estate Investment Trusts (REITs) (New Name)\",\"children\":[{\"industry\":\"601025 Industrial REITs (New)\"},{\"industry\":\"601030 Hotel & Resort REITs (New)\"},{\"industry\":\"601040 Office REITs (New)\"},{\"industry\":\"601050 Health Care REITs (New)\"},{\"industry\":\"601060 Residential REITs (New)\"},{\"industry\":\"601070 Retail REITs (New)\"},{\"industry\":\"601080 Specialized REITs (New)\"}]},{\"industry_group\":\"6020 Real Estate Management & Development (New)\",\"children\":[{\"industry\":\"602010 Real Estate Management & Development (New Code)\"}]}]},{\"sector\":\"\",\"children\":[{\"industry_group\":\"\",\"children\":[{\"industry\":\"\"}]}]}]}");
 
 },{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire1fd7", {}, null, null, "http://localhost:1234")
 
