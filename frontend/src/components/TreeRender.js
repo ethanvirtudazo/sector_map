@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
-import gicsTree from "../d3/gicsTree.js";
+import React, { useMemo, useRef } from "react";
+import treeOject from "../d3/treeObject.js";
 import data from "../../data/test.js";
 import * as d3 from "d3";
-import GicsNode from "./gicsNode.js"
+import TreeNode from "./TreeNode.js";
 
 // Helper to get a unique path for each node
 function getNodePath(node, parentPath = "") {
@@ -10,16 +10,18 @@ function getNodePath(node, parentPath = "") {
   return parentPath ? `${parentPath}/${nodeName}` : nodeName;
 }
 
-const GicsRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedNodes }) => {
+const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedNodes }) => {
+  const svgRef = useRef();
+  const gRef = useRef();
+
   const { root, dimensions } = useMemo(() => {
     const dataCopy = JSON.parse(JSON.stringify(data));
 
-    // Recursive function to filter children based on expanded state
     function filterChildren(node, parentPath = "") {
       const nodePath = getNodePath(node, parentPath);
       const isRoot = !parentPath;
       const isExpanded = isRoot || expandedNodes.has(nodePath);
-      node._nodePath = nodePath; // Attach for later use
+      node._nodePath = nodePath;
       if (node.children && node.children.length > 0) {
         if (isExpanded) {
           node.children = node.children.map(child => filterChildren(child, nodePath));
@@ -31,26 +33,24 @@ const GicsRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
     }
 
     const filteredData = filterChildren(dataCopy);
-    return gicsTree(filteredData);
+    return treeOject(filteredData);
   }, [expandedNodes]);
 
+  const centerX = dimensions.width / 2 - root.x;
+
   return (
-    <div style={{ 
-        display: "flex", 
-        height: "100vh", 
-        overflow: "auto" }}>
+    <div style={{ display: "flex", height: "100vh", overflow: "auto" }}>
       <svg
+        ref={svgRef}
         width={dimensions.width}
         height={dimensions.height}
         style={{ flex: 1 }}
       >
-        <g transform={`translate(${50 - dimensions.x0}, 50)`}>
+        <g ref={gRef} transform={`translate(${centerX}, 50)`}>
           {root.links().map((link, i) => (
             <path
               key={i}
-              d={d3.linkVertical()
-                .x(d => d.x)
-                .y(d => d.y)(link)}
+              d={d3.linkVertical().x(d => d.x).y(d => d.y)(link)}
               fill="none"
               stroke="#ccc"
               strokeWidth={1.5}
@@ -58,9 +58,9 @@ const GicsRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
           ))}
 
           {root.descendants().map((node, i) => (
-            <GicsNode 
-              key={node.data._nodePath || i} 
-              node={node} 
+            <TreeNode
+              key={node.data._nodePath || i}
+              node={node}
               setSelectedNode={setSelectedNode}
               expandedNodes={expandedNodes}
               setExpandedNodes={setExpandedNodes}
@@ -88,4 +88,5 @@ const GicsRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
   );
 };
 
-export default GicsRender;
+export default TreeRender;
+

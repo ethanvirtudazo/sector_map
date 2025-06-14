@@ -14,7 +14,7 @@ function getAllDescendantPaths(node) {
   return paths;
 }
 
-export default function GicsNode({ node, setSelectedNode, expandedNodes, setExpandedNodes }) {
+export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpandedNodes, zoomToNode }) {
   const nodePath = node.data._nodePath;
   const isExpanded = expandedNodes.has(nodePath);
 
@@ -22,17 +22,15 @@ export default function GicsNode({ node, setSelectedNode, expandedNodes, setExpa
     e.stopPropagation();
     const newExpandedNodes = new Set(expandedNodes);
     if (isExpanded) {
-      // Collapse: remove this node and all descendants
       newExpandedNodes.delete(nodePath);
       getAllDescendantPaths(node).forEach(path => newExpandedNodes.delete(path));
     } else {
-      // Expand: only add this node
       newExpandedNodes.add(nodePath);
     }
     setExpandedNodes(newExpandedNodes);
     setSelectedNode(node.data);
+  
   };
-
   // Use the most specific name available
   const nodeName = node.data.sector || node.data.industry_group || node.data.industry || node.data.root || node.data.name || "";
 
@@ -54,3 +52,4 @@ export default function GicsNode({ node, setSelectedNode, expandedNodes, setExpa
     </g>
   );
 }
+

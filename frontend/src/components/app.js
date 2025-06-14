@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import GicsRender from "./gicsRender.js";
+import TreeRender from "./TreeRender.js";
 
 const App = () => {
     const [selectedNode, setSelectedNode] = useState(null);
     const [expandedNodes, setExpandedNodes] = useState(new Set());
 
+
+
     return (
-        <GicsRender 
+        <TreeRender 
             selectedNode={selectedNode}
             setSelectedNode={setSelectedNode}
             expandedNodes={expandedNodes}

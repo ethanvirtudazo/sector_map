@@ -233,20 +233,7 @@
           ]
         }
       ]
-    },
-    {
-      "sector": "40 Financials",
-      "children": [
-        {
-          "industry_group": "4010 Banks",
-          "children": [
-            {
-              "industry": "401010 Banks"
-            }
-          ]
-        }
-      ]
-    },
+    },   
     {
       "sector": "Financials",
       "children": [
@@ -283,19 +270,6 @@
           "children": [
             {
               "industry": "403010 Insurance"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "sector": "45 Information Technology",
-      "children": [
-        {
-          "industry_group": "4510 Software & Services",
-          "children": [
-            {
-              "industry": "451020 IT Services"
             }
           ]
         }
@@ -340,19 +314,6 @@
       ]
     },
     {
-      "sector": "50 Communication Services",
-      "children": [
-        {
-          "industry_group": "5010 Telecommunication Services",
-          "children": [
-            {
-              "industry": "501010 Diversified Telecommunication Services"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "sector": "Communication Services",
       "children": [
         {
@@ -377,19 +338,6 @@
             },
             {
               "industry": "502030 Interactive Media & Services"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "sector": "55 Utilities",
-      "children": [
-        {
-          "industry_group": "5510 Utilities",
-          "children": [
-            {
-              "industry": "551010 Electric Utilities"
             }
           ]
         }

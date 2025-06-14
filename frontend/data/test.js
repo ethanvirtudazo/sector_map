@@ -233,20 +233,7 @@ export default {
           ]
         }
       ]
-    },
-    {
-      "sector": "40 Financials",
-      "children": [
-        {
-          "industry_group": "4010 Banks",
-          "children": [
-            {
-              "industry": "401010 Banks"
-            }
-          ]
-        }
-      ]
-    },
+    },   
     {
       "sector": "Financials",
       "children": [
@@ -283,19 +270,6 @@ export default {
           "children": [
             {
               "industry": "403010 Insurance"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "sector": "45 Information Technology",
-      "children": [
-        {
-          "industry_group": "4510 Software & Services",
-          "children": [
-            {
-              "industry": "451020 IT Services"
             }
           ]
         }
@@ -340,19 +314,6 @@ export default {
       ]
     },
     {
-      "sector": "50 Communication Services",
-      "children": [
-        {
-          "industry_group": "5010 Telecommunication Services",
-          "children": [
-            {
-              "industry": "501010 Diversified Telecommunication Services"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "sector": "Communication Services",
       "children": [
         {
@@ -383,19 +344,6 @@ export default {
       ]
     },
     {
-      "sector": "55 Utilities",
-      "children": [
-        {
-          "industry_group": "5510 Utilities",
-          "children": [
-            {
-              "industry": "551010 Electric Utilities"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "sector": "Utilities",
       "children": [
         {
@@ -412,19 +360,6 @@ export default {
             },
             {
               "industry": "551050 Independent Power and Renewable Electricity Producers"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "sector": "60 Real Estate",
-      "children": [
-        {
-          "industry_group": "6010 Equity Real Estate Investment Trusts (REITs) (New Name)",
-          "children": [
-            {
-              "industry": "601010 Diversified REITs (New Name)"
             }
           ]
         }
@@ -468,19 +403,6 @@ export default {
           ]
         }
       ]
-    },
-    {
-      "sector": "",
-      "children": [
-        {
-          "industry_group": "",
-          "children": [
-            {
-              "industry": ""
-            }
-          ]
-        }
-      ]
-    }
+    }    
   ]
 }
