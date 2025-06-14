@@ -11,7 +11,7 @@ const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
   const centerX = dimensions.width / 2 - root.x;
 
   return (
-    <div style={{ display: "flex", height: "100vh", overflow: "auto" }}>
+    <div style={{ width: "100vw", height: "100vh", overflow: "auto" }}>
       <svg ref={svgRef} width={dimensions.width} height={dimensions.height} style={{ flex: 1 }}>
         <g ref={gRef} transform={`translate(${centerX}, 50)`}>
           {root.links().map((link, i) => (
