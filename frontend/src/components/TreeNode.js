@@ -1,20 +1,8 @@
 import React from "react";
+import getAllDescendantPaths from "./utils/getAllDescendentPaths.js";
 
-// Utility to get all descendant paths for a node
-function getAllDescendantPaths(node) {
-  let paths = [];
-  if (node.children && node.children.length > 0) {
-    node.children.forEach(child => {
-      if (child.data._nodePath) {
-        paths.push(child.data._nodePath);
-      }
-      paths = paths.concat(getAllDescendantPaths(child));
-    });
-  }
-  return paths;
-}
 
-export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpandedNodes, zoomToNode }) {
+export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpandedNodes }) {
   const nodePath = node.data._nodePath;
   const isExpanded = expandedNodes.has(nodePath);
 
@@ -31,8 +19,8 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
     setSelectedNode(node.data);
   
   };
-  // Use the most specific name available
-  const nodeName = node.data.sector || node.data.industry_group || node.data.industry || node.data.root || node.data.name || "";
+
+  const nodeName = node.data.sector || node.data.industryz_group || node.data.industry || node.data.root || node.data.name || "";
 
   return (
     <g

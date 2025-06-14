@@ -1,11 +1,10 @@
+// Manages UI state
 import React, { useState } from "react";
-import TreeRender from "./TreeRender.js";
+import TreeRender from "./TreeRender.js"
 
 const App = () => {
     const [selectedNode, setSelectedNode] = useState(null);
     const [expandedNodes, setExpandedNodes] = useState(new Set());
-
-
 
     return (
         <TreeRender 
