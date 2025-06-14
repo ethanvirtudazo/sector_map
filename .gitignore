@@ -1,0 +1,6 @@
+# Ignore Parcel cache files
+frontend/.parcel-cache/
+*.mdb
+
+# Optional: ignore build output
+frontend/dist/
