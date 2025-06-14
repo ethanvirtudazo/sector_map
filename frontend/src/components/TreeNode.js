@@ -20,7 +20,7 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
   
   };
 
-  const nodeName = node.data.sector || node.data.industryz_group || node.data.industry || node.data.root || node.data.name || "";
+  const nodeName = node.data.sector || node.data.industry_group || node.data.industry || node.data.root || node.data.name || "";
 
   return (
     <g
@@ -35,7 +35,19 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
         textAnchor="start"
         style={{ fontSize: 10 }}
       >
-        {nodeName}
+        {nodeName.split(/(?<=\s)/g).reduce((acc, word) => {
+          // Group words into lines of max 18 chars (adjust as needed)
+          if (!acc.length || acc[acc.length - 1].length + word.length > 18) {
+            acc.push(word);
+          } else {
+            acc[acc.length - 1] += word;
+          }
+          return acc;
+        }, []).map((line, i) => (
+          <tspan key={i} x={6} dy={i === 0 ? 0 : "1.2em"}>
+            {line}
+          </tspan>
+        ))}
       </text>
     </g>
   );
