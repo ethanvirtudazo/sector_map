@@ -16,6 +16,8 @@ const App = () => {
         return saved ? JSON.parse(saved) : null;
     });
 
+    const [zoomLevel, setZoomLevel] = useState(1.5); // Initial zoom level
+
     // Save expandedNodes to localStorage whenever it changes
     useEffect(() => {
         localStorage.setItem(EXPANDED_NODES_KEY, JSON.stringify(Array.from(expandedNodes)));
@@ -38,7 +40,7 @@ const App = () => {
 
     return (
         <>
-            {selectedNode && selectedNode.sub_industry && selectedNode.information && ( // Ensure information exists
+            {selectedNode && selectedNode.sub_industry && selectedNode.information && (
                 <div
                     style={{
                         position: "fixed",
@@ -59,6 +61,22 @@ const App = () => {
                     <button onClick={() => setSelectedNode(null)} style={{marginTop: 16}}>Close</button>
                 </div>
             )}
+            <button
+                onClick={handleReset}
+                style={{
+                    position: "fixed", // Use fixed positioning
+                    top: 10,
+                    left: 10,
+                    zIndex: 2001, // Ensure it's above the side panel if both are visible
+                    padding: "8px 12px",
+                    background: "#f0f0f0",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    cursor: "pointer"
+                }}
+            >
+                Reset Tree
+            </button>
             <div style={{
                 width: "100vw",
                 height: "100vh",
@@ -72,6 +90,7 @@ const App = () => {
                     setSelectedNode={setSelectedNode}
                     expandedNodes={expandedNodes}
                     setExpandedNodes={setExpandedNodes}
+                    zoomLevel={zoomLevel} 
                 />
             </div>
         </>
