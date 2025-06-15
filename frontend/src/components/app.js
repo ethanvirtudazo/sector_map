@@ -8,12 +8,13 @@ const SELECTED_NODE_KEY = "selectedNode";
 const App = () => {
     // Load from localStorage or use default
     const [expandedNodes, setExpandedNodes] = useState(() => {
-        // const saved = localStorage.getItem(EXPANDED_NODES_KEY);
-        const saved = ""
+        const saved = localStorage.getItem(EXPANDED_NODES_KEY);
+        // const saved = ""
         return saved ? new Set(JSON.parse(saved)) : new Set();
     });
     const [selectedNode, setSelectedNode] = useState(() => {
-        const saved = ""
+        // const saved = ""
+        const saved = localStorage.getItem(SELECTED_NODE_KEY);
         return saved ? JSON.parse(saved) : null;
     });
 
@@ -41,14 +42,44 @@ const App = () => {
     };
 
     return (
-        
-        <TreeRender 
-            handleReset={handleReset}
-            selectedNode={selectedNode}
-            setSelectedNode={setSelectedNode}
-            expandedNodes={expandedNodes}
-            setExpandedNodes={setExpandedNodes}
-        />
+        <>
+            {selectedNode && selectedNode.sub_industry && (
+                <div
+                    style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        width: "350px",
+                        height: "100vh",
+                        background: "#fff",
+                        borderRight: "1px solid #ddd",
+                        boxShadow: "2px 0 8px rgba(0,0,0,0.05)",
+                        zIndex: 2000,
+                        padding: "24px",
+                        overflowY: "auto"
+                    }}
+                >
+                    <h3 style={{marginTop: 0}}>{selectedNode.sub_industry}</h3>
+                    <p style={{whiteSpace: "pre-line"}}>{selectedNode.information}</p>
+                    <button onClick={() => setSelectedNode(null)} style={{marginTop: 16}}>Close</button>
+                </div>
+            )}
+            <div style={{
+                width: "100vw",
+                height: "100vh",
+                overflow: "auto",
+                position: "relative",
+                marginLeft: selectedNode && selectedNode.sub_industry ? 350 : 0
+            }}>
+                <TreeRender 
+                    handleReset={handleReset}
+                    selectedNode={selectedNode}
+                    setSelectedNode={setSelectedNode}
+                    expandedNodes={expandedNodes}
+                    setExpandedNodes={setExpandedNodes}
+                />
+            </div>
+        </>
     );
 };
 
