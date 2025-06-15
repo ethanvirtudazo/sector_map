@@ -8,17 +8,29 @@ const TreeRender = ({ handleReset, selectedNode, setSelectedNode, expandedNodes,
   const svgRef = useRef();
   const gRef = useRef();
   const { root, dimensions } = useFilteredTree(expandedNodes);
-  const centerX = dimensions.width / 2 - root.x;
+
+  // Calculate translation to position the tree, accounting for its leftmost point (x0)
+  // and adding a fixed padding for visual appearance.
+  // The initial Y translation is kept fixed to align the root at a specific vertical position.
+  const translateX = -dimensions.x0 + 100; // Shift by -x0 to make the leftmost point start near 0, then add padding
+  const translateY = 50; // Fixed vertical offset for the root node
 
   // Calculate scaled dimensions for the SVG container
-  const scaledWidth = dimensions.width * zoomLevel;
-  const scaledHeight = dimensions.height * zoomLevel;
+  // These dimensions should be large enough to contain the entire (potentially zoomed) tree
+  const scaledWidth = (dimensions.width + 200) * zoomLevel; // Add extra padding to width before scaling
+  const scaledHeight = (dimensions.height + 100) * zoomLevel; // Add extra padding to height before scaling
 
   return (
     <div style={{ width: "100vw", height: "100vh", overflow: "auto", position: "relative" }}>
-      {/* <div style={{ transform: "scale(1)", transformOrigin: "0 0" }}> */}
+      <button
+        onClick={handleReset}
+        style={{ position: "absolute", top: 10, left: 10, zIndex: 1000 }}
+      >
+        Reset Tree
+      </button>
       <svg ref={svgRef} width={scaledWidth} height={scaledHeight} style={{ flex: 1 }}>
-        <g ref={gRef} transform={`translate(${centerX}, 50) scale(${zoomLevel})`}>
+        {/* Apply translation and scale to the main group element */}
+        <g ref={gRef} transform={`translate(${translateX * zoomLevel}, ${translateY * zoomLevel}) scale(${zoomLevel})`}>
           {root.links().map((link, i) => (
             <path
               key={i}
@@ -42,7 +54,6 @@ const TreeRender = ({ handleReset, selectedNode, setSelectedNode, expandedNodes,
         </g>
       </svg>  
     </div>
-  // </div>
   );
 };
 

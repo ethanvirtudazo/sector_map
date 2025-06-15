@@ -10,7 +10,7 @@ function normalizeNames(node) {
 /**
  * Builds a D3 tree layout and returns both the root and its dimensions
  */
-export default function treeOject(data, dx = 100, dy = 180) {
+export default function treeOject(data, dx = 100, dy = 250) {
   const raw = JSON.parse(JSON.stringify(data));
   raw.name = raw.root;
   normalizeNames(raw);
@@ -29,7 +29,7 @@ export default function treeOject(data, dx = 100, dy = 180) {
 return {
   root,
   dimensions: {
-    width: x1 - x0 + 300, // ← increase buffer (try 300+)
+    width: x1 - x0 + 400,
     height: y1 + 200,
     x0
   }
