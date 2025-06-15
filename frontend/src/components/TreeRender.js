@@ -12,7 +12,7 @@ const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
   // Calculate translation to position the tree, accounting for its leftmost point (x0)
   // and adding a fixed padding for visual appearance.
   // The initial Y translation is kept fixed to align the root at a specific vertical position.
-  const translateX = -dimensions.x0 + 100; // Shift by -x0 to make the leftmost point start near 0, then add padding
+  const translateX = (170 / zoomLevel) - dimensions.x0; // Adjust for 20px padding after labels
   const translateY = 50; // Fixed vertical offset for the root node
 
   // Calculate scaled dimensions for the SVG container
@@ -20,9 +20,39 @@ const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
   const scaledWidth = (dimensions.width + 200) * zoomLevel; // Add extra padding to width before scaling
   const scaledHeight = (dimensions.height + 850) * zoomLevel; // Add extra padding to height before scaling, accounting for info card
 
+  const marketLevelInfo = {};
+  root.descendants().forEach(d => {
+    if (d.data.sector && !marketLevelInfo.sector) marketLevelInfo.sector = { y: d.y, name: d.data.sector };
+    if (d.data.industry_group && !marketLevelInfo.industry_group) marketLevelInfo.industry_group = { y: d.y, name: d.data.industry_group };
+    if (d.data.industry && !marketLevelInfo.industry) marketLevelInfo.industry = { y: d.y, name: d.data.industry };
+    if (d.data.sub_industry && !marketLevelInfo.sub_industry) marketLevelInfo.sub_industry = { y: d.y, name: d.data.sub_industry };
+  });
+
   return (
     <div style={{ width: "100vw", height: "100vh", overflow: "auto", position: "relative" }}>
       <svg ref={svgRef} width={scaledWidth} height={scaledHeight} style={{ flex: 1 }}>
+        {/* Market Level Lines and Labels */}
+        {Object.entries(marketLevelInfo).map(([level, info]) => (
+          <React.Fragment key={level}>
+            <line
+              x1={145} // Adjusted to start precisely from the edge of the labels for a connected look
+              y1={(info.y * zoomLevel) + (translateY * zoomLevel)}
+              x2={scaledWidth - 50} // Extend to right of scaled SVG width with padding
+              y2={(info.y * zoomLevel) + (translateY * zoomLevel)}
+              stroke="#ddd" // Light gray color for the lines
+              strokeDasharray="4 4" // Dashed line
+            />
+            <text
+              x={20} // Increased to ensure 20px margin from left is consistently visible
+              y={(info.y * zoomLevel) + (translateY * zoomLevel)}
+              dy="0.32em"
+              textAnchor="start" // Align text to the start (left)
+              style={{ fontSize: "15px", fill: "#555" }}
+            >
+              {level.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())} {/* Capitalize and format label */}
+            </text>
+          </React.Fragment>
+        ))}
         {/* Apply translation and scale to the main group element */}
         <g ref={gRef} transform={`translate(${translateX * zoomLevel}, ${translateY * zoomLevel}) scale(${zoomLevel})`}>
           {root.links().map((link, i) => (
