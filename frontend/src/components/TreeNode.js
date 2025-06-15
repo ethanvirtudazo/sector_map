@@ -20,7 +20,14 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
   
   };
 
-  const nodeName = node.data.sector || node.data.industry_group || node.data.industry || node.data.root || node.data.name || "";
+  const nodeName = node.data.sector
+    || node.data.industry_group
+    || node.data.industry
+    || node.data.sub_industry
+    || node.data.information
+    || node.data.root
+    || node.data.name
+    || "";
 
   return (
     <g

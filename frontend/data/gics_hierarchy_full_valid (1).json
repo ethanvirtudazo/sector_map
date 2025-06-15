@@ -1,0 +1,1088 @@
+{
+  "root": "GICS",
+  "level": "sectors",
+  "children": [
+    {
+      "sector": "nan nan",
+      "children": [
+        {
+          "industry_group": "nan nan",
+          "children": [
+            {
+              "industry": "nan nan",
+              "children": [
+                {
+                  "sub_industry": "10101020 Oil & Gas Equipment & Services"
+                },
+                {
+                  "sub_industry": "10102020 Oil & Gas Exploration & Production"
+                },
+                {
+                  "sub_industry": "20202030 Data Processing & Outsourced Services (Sector Change, New Code & Definition Update)"
+                },
+                {
+                  "sub_industry": "20304040 Passenger Ground Transportation (New)"
+                },
+                {
+                  "sub_industry": "25503030 Broadline Retail (New)"
+                },
+                {
+                  "sub_industry": "40201050 Commercial & Residential Mortgage Finance (New)"
+                },
+                {
+                  "sub_industry": "40201060 Transaction & Payment Processing Services (New)"
+                },
+                {
+                  "sub_industry": "45102030 Internet Services & Infrastructure"
+                },
+                {
+                  "sub_industry": "50201020 Broadcasting"
+                },
+                {
+                  "sub_industry": "50201030 Cable & Satellite"
+                },
+                {
+                  "sub_industry": "50201040 Publishing"
+                },
+                {
+                  "sub_industry": "50202020 Interactive Home Entertainment"
+                },
+                {
+                  "sub_industry": "60106020 Single-Family Residential REITs* (New)"
+                },
+                {
+                  "sub_industry": "60108020 Self-Storage REITs* (New)"
+                },
+                {
+                  "sub_industry": "60108030 Telecom Tower REITs* (New)"
+                },
+                {
+                  "sub_industry": "60108040 Timber REITs* (New)"
+                },
+                {
+                  "sub_industry": "60108050 Data Center REITs* (New)"
+                }
+              ]
+            },
+            {
+              "industry": "101020 Oil, Gas & Consumable Fuels",
+              "children": [
+                {
+                  "sub_industry": "10102010 Integrated Oil & Gas"
+                }
+              ]
+            },
+            {
+              "industry": "502020 Entertainment",
+              "children": [
+                {
+                  "sub_industry": "50202010 Movies & Entertainment"
+                }
+              ]
+            },
+            {
+              "industry": "502030 Interactive Media & Services",
+              "children": [
+                {
+                  "sub_industry": "50203010 Interactive Media & Services"
+                }
+              ]
+            },
+            {
+              "industry": "601060 Residential REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60106010 Multi-Family Residential REITs* (New)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "5020 Media & Entertainment",
+          "children": [
+            {
+              "industry": "502010 Media",
+              "children": [
+                {
+                  "sub_industry": "50201010 Advertising"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": " nan",
+      "children": [
+        {
+          "industry_group": "nan nan",
+          "children": [
+            {
+              "industry": "nan nan",
+              "children": [
+                {
+                  "sub_industry": "10102030 Oil & Gas Refining & Marketing"
+                },
+                {
+                  "sub_industry": "10102040 Oil & Gas Storage & Transportation"
+                },
+                {
+                  "sub_industry": "10102050 Coal & Consumable Fuels"
+                },
+                {
+                  "sub_industry": "15101020 Diversified Chemicals"
+                },
+                {
+                  "sub_industry": "15101030 Fertilizers & Agricultural Chemicals"
+                },
+                {
+                  "sub_industry": "15101040 Industrial Gases"
+                },
+                {
+                  "sub_industry": "15101050 Specialty Chemicals"
+                },
+                {
+                  "sub_industry": "15103020 Paper & Plastic Packaging Products & Materials (New Name)"
+                },
+                {
+                  "sub_industry": "15104020 Diversified Metals & Mining"
+                },
+                {
+                  "sub_industry": "15104025 Copper"
+                },
+                {
+                  "sub_industry": "15104030 Gold"
+                },
+                {
+                  "sub_industry": "15104040 Precious Metals & Minerals"
+                },
+                {
+                  "sub_industry": "15104045 Silver"
+                },
+                {
+                  "sub_industry": "15104050 Steel"
+                },
+                {
+                  "sub_industry": "15105020 Paper Products"
+                },
+                {
+                  "sub_industry": "20104020 Heavy Electrical Equipment"
+                },
+                {
+                  "sub_industry": "20106015 Agricultural & Farm Machinery"
+                },
+                {
+                  "sub_industry": "20106020 Industrial Machinery & Supplies & Components (New Name)"
+                },
+                {
+                  "sub_industry": "20201050 Environmental & Facilities Services"
+                },
+                {
+                  "sub_industry": "20201060 Office Services & Supplies"
+                },
+                {
+                  "sub_industry": "20201070 Diversified Support Services"
+                },
+                {
+                  "sub_industry": "20201080 Security & Alarm Services"
+                },
+                {
+                  "sub_industry": "20202020 Research & Consulting Services"
+                },
+                {
+                  "sub_industry": "20304020 Trucking (Discontinued)"
+                },
+                {
+                  "sub_industry": "20304030 Cargo Ground Transportation (New)"
+                },
+                {
+                  "sub_industry": "20305020 Highways & Railtracks"
+                },
+                {
+                  "sub_industry": "20305030 Marine Ports & Services"
+                },
+                {
+                  "sub_industry": "25101020 Tires & Rubber"
+                },
+                {
+                  "sub_industry": "25102020 Motorcycle Manufacturers"
+                },
+                {
+                  "sub_industry": "25201020 Home Furnishings"
+                },
+                {
+                  "sub_industry": "25201030 Homebuilding"
+                },
+                {
+                  "sub_industry": "25201040 Household Appliances"
+                },
+                {
+                  "sub_industry": "25201050 Housewares & Specialties"
+                },
+                {
+                  "sub_industry": "25203020 Footwear"
+                },
+                {
+                  "sub_industry": "25203030 Textiles"
+                },
+                {
+                  "sub_industry": "25301020 Hotels, Resorts & Cruise Lines"
+                },
+                {
+                  "sub_industry": "25301030 Leisure Facilities"
+                },
+                {
+                  "sub_industry": "25301040 Restaurants"
+                },
+                {
+                  "sub_industry": "25302020 Specialized Consumer Services"
+                },
+                {
+                  "sub_industry": "25503020 General Merchandise Stores (Discontinued)"
+                },
+                {
+                  "sub_industry": "25504020 Computer & Electronics Retail"
+                },
+                {
+                  "sub_industry": "25504030 Home Improvement Retail"
+                },
+                {
+                  "sub_industry": "25504040 Other Specialty Retail (New Name)"
+                },
+                {
+                  "sub_industry": "25504050 Automotive Retail"
+                },
+                {
+                  "sub_industry": "25504060 Homefurnishing Retail"
+                },
+                {
+                  "sub_industry": "30101020 Food Distributors"
+                },
+                {
+                  "sub_industry": "30101030 Food Retail"
+                },
+                {
+                  "sub_industry": "30101040 Consumer Staples Merchandise Retail (New Name & Definition Update)"
+                },
+                {
+                  "sub_industry": "30201020 Distillers & Vintners"
+                },
+                {
+                  "sub_industry": "30201030 Soft Drinks & Non-alcoholic Beverages (New Name)"
+                },
+                {
+                  "sub_industry": "30202030 Packaged Foods & Meats"
+                },
+                {
+                  "sub_industry": "35101020 Health Care Supplies"
+                },
+                {
+                  "sub_industry": "35102015 Health Care Services"
+                },
+                {
+                  "sub_industry": "35102020 Health Care Facilities"
+                },
+                {
+                  "sub_industry": "35102030 Managed Health Care"
+                },
+                {
+                  "sub_industry": "40101015 Regional Banks (Definition Update)"
+                },
+                {
+                  "sub_industry": "40201030 Multi-Sector Holdings"
+                },
+                {
+                  "sub_industry": "40201040 Specialized Finance"
+                },
+                {
+                  "sub_industry": "40203020 Investment Banking & Brokerage"
+                },
+                {
+                  "sub_industry": "40203030 Diversified Capital Markets"
+                },
+                {
+                  "sub_industry": "40203040 Financial Exchanges & Data"
+                },
+                {
+                  "sub_industry": "40301020 Life & Health Insurance"
+                },
+                {
+                  "sub_industry": "40301030 Multi-line Insurance"
+                },
+                {
+                  "sub_industry": "40301040 Property & Casualty Insurance"
+                },
+                {
+                  "sub_industry": "40301050 Reinsurance"
+                },
+                {
+                  "sub_industry": "45102020 Data Processing & Outsourced Services (Discontinued)"
+                },
+                {
+                  "sub_industry": "45103020 Systems Software"
+                },
+                {
+                  "sub_industry": "45203015 Electronic Components"
+                },
+                {
+                  "sub_industry": "45203020 Electronic Manufacturing Services"
+                },
+                {
+                  "sub_industry": "45203030 Technology Distributors"
+                },
+                {
+                  "sub_industry": "45301020 Semiconductors"
+                },
+                {
+                  "sub_industry": "50101020 Integrated Telecommunication Services"
+                },
+                {
+                  "sub_industry": "55105020 Renewable Electricity"
+                },
+                {
+                  "sub_industry": "60101060 Residential REITs (Discontinued)"
+                },
+                {
+                  "sub_industry": "60201020 Real Estate Operating Companies (New Code)"
+                },
+                {
+                  "sub_industry": "60201030 Real Estate Development (New Code)"
+                },
+                {
+                  "sub_industry": "60201040 Real Estate Services (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "151020 Construction Materials",
+              "children": [
+                {
+                  "sub_industry": "15102010 Construction Materials"
+                }
+              ]
+            },
+            {
+              "industry": "151030 Containers & Packaging",
+              "children": [
+                {
+                  "sub_industry": "15103010 Metal, Glass & Plastic Containers  (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "151040 Metals & Mining",
+              "children": [
+                {
+                  "sub_industry": "15104010 Aluminum"
+                }
+              ]
+            },
+            {
+              "industry": "151050 Paper & Forest Products",
+              "children": [
+                {
+                  "sub_industry": "15105010 Forest Products"
+                }
+              ]
+            },
+            {
+              "industry": "201020 Building Products",
+              "children": [
+                {
+                  "sub_industry": "20102010 Building Products"
+                }
+              ]
+            },
+            {
+              "industry": "201030 Construction & Engineering",
+              "children": [
+                {
+                  "sub_industry": "20103010 Construction & Engineering"
+                }
+              ]
+            },
+            {
+              "industry": "201040 Electrical Equipment",
+              "children": [
+                {
+                  "sub_industry": "20104010 Electrical Components & Equipment"
+                }
+              ]
+            },
+            {
+              "industry": "201050 Industrial Conglomerates",
+              "children": [
+                {
+                  "sub_industry": "20105010 Industrial Conglomerates"
+                }
+              ]
+            },
+            {
+              "industry": "201060 Machinery",
+              "children": [
+                {
+                  "sub_industry": "20106010 Construction Machinery & Heavy Transportation Equipment (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "201070 Trading Companies & Distributors",
+              "children": [
+                {
+                  "sub_industry": "20107010 Trading Companies & Distributors"
+                }
+              ]
+            },
+            {
+              "industry": "202020 Professional Services",
+              "children": [
+                {
+                  "sub_industry": "20202010 Human Resource & Employment Services (Definition Update)"
+                }
+              ]
+            },
+            {
+              "industry": "203020 Passenger Airlines (New name)",
+              "children": [
+                {
+                  "sub_industry": "20302010 Passenger Airlines (New name)"
+                }
+              ]
+            },
+            {
+              "industry": "203030 Marine Transportation (New Name)",
+              "children": [
+                {
+                  "sub_industry": "20303010 Marine Transportation (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "203040 Ground Transportation (New Name)",
+              "children": [
+                {
+                  "sub_industry": "20304010 Rail Transportation (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "203050 Transportation Infrastructure",
+              "children": [
+                {
+                  "sub_industry": "20305010 Airport Services"
+                }
+              ]
+            },
+            {
+              "industry": "251020 Automobiles",
+              "children": [
+                {
+                  "sub_industry": "25102010 Automobile Manufacturers"
+                }
+              ]
+            },
+            {
+              "industry": "252020 Leisure Products",
+              "children": [
+                {
+                  "sub_industry": "25202010 Leisure Products"
+                }
+              ]
+            },
+            {
+              "industry": "252030 Textiles, Apparel & Luxury Goods",
+              "children": [
+                {
+                  "sub_industry": "25203010 Apparel, Accessories & Luxury Goods"
+                }
+              ]
+            },
+            {
+              "industry": "253020 Diversified Consumer Services",
+              "children": [
+                {
+                  "sub_industry": "25302010 Education Services"
+                }
+              ]
+            },
+            {
+              "industry": "255020 Internet & Direct Marketing Retail (Discontinued)",
+              "children": [
+                {
+                  "sub_industry": "25502020 Internet & Direct Marketing Retail (Discontinued)"
+                }
+              ]
+            },
+            {
+              "industry": "255030 Broadline Retail (New Name)",
+              "children": [
+                {
+                  "sub_industry": "25503010 Department Stores (Discontinued)"
+                }
+              ]
+            },
+            {
+              "industry": "255040 Specialty Retail",
+              "children": [
+                {
+                  "sub_industry": "25504010 Apparel Retail"
+                }
+              ]
+            },
+            {
+              "industry": "302020 Food Products",
+              "children": [
+                {
+                  "sub_industry": "30202010 Agricultural Products & Services (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "302030 Tobacco",
+              "children": [
+                {
+                  "sub_industry": "30203010 Tobacco"
+                }
+              ]
+            },
+            {
+              "industry": "303020 Personal Care Products (New Name)",
+              "children": [
+                {
+                  "sub_industry": "30302010 Personal Care Products (New Name)"
+                }
+              ]
+            },
+            {
+              "industry": "351020 Health Care Providers & Services",
+              "children": [
+                {
+                  "sub_industry": "35102010 Health Care Distributors"
+                }
+              ]
+            },
+            {
+              "industry": "351030 Health Care Technology",
+              "children": [
+                {
+                  "sub_industry": "35103010 Health Care Technology"
+                }
+              ]
+            },
+            {
+              "industry": "352020 Pharmaceuticals",
+              "children": [
+                {
+                  "sub_industry": "35202010 Pharmaceuticals"
+                }
+              ]
+            },
+            {
+              "industry": "352030 Life Sciences Tools & Services",
+              "children": [
+                {
+                  "sub_industry": "35203010 Life Sciences Tools & Services"
+                }
+              ]
+            },
+            {
+              "industry": "401020 Thrifts & Mortgage Finance (Discontinued)",
+              "children": [
+                {
+                  "sub_industry": "40102010 Thrifts & Mortgage Finance (Discontinued)"
+                }
+              ]
+            },
+            {
+              "industry": "402020 Consumer Finance",
+              "children": [
+                {
+                  "sub_industry": "40202010 Consumer Finance"
+                }
+              ]
+            },
+            {
+              "industry": "402030 Capital Markets",
+              "children": [
+                {
+                  "sub_industry": "40203010 Asset Management & Custody Banks"
+                }
+              ]
+            },
+            {
+              "industry": "402040 Mortgage Real Estate Investment\nTrusts (REITs)",
+              "children": [
+                {
+                  "sub_industry": "40204010 Mortgage REITs*"
+                }
+              ]
+            },
+            {
+              "industry": "451030 Software",
+              "children": [
+                {
+                  "sub_industry": "45103010 Application Software"
+                }
+              ]
+            },
+            {
+              "industry": "452020 Technology Hardware, Storage & Peripherals",
+              "children": [
+                {
+                  "sub_industry": "45202030 Technology Hardware, Storage & Peripherals"
+                }
+              ]
+            },
+            {
+              "industry": "452030 Electronic Equipment, Instruments & Components",
+              "children": [
+                {
+                  "sub_industry": "45203010 Electronic Equipment & Instruments"
+                }
+              ]
+            },
+            {
+              "industry": "501020 Wireless Telecommunication Services",
+              "children": [
+                {
+                  "sub_industry": "50102010 Wireless Telecommunication Services"
+                }
+              ]
+            },
+            {
+              "industry": "551020 Gas Utilities",
+              "children": [
+                {
+                  "sub_industry": "55102010 Gas Utilities"
+                }
+              ]
+            },
+            {
+              "industry": "551030 Multi-Utilities",
+              "children": [
+                {
+                  "sub_industry": "55103010 Multi-Utilities"
+                }
+              ]
+            },
+            {
+              "industry": "551040 Water Utilities",
+              "children": [
+                {
+                  "sub_industry": "55104010 Water Utilities"
+                }
+              ]
+            },
+            {
+              "industry": "551050 Independent Power and Renewable Electricity Producers",
+              "children": [
+                {
+                  "sub_industry": "55105010 Independent Power Producers & Energy Traders"
+                }
+              ]
+            },
+            {
+              "industry": "601025 Industrial REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60102510 Industrial REITs* (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "601030 Hotel & Resort REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60103010 Hotel & Resort REITs* (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "601040 Office REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60104010 Office REITs* (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "601050 Health Care REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60105010 Health Care REITs* (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "601070 Retail REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60107010 Retail REITs* (New Code)"
+                }
+              ]
+            },
+            {
+              "industry": "601080 Specialized REITs (New)",
+              "children": [
+                {
+                  "sub_industry": "60108010 Other Specialized REITs* (New Name/ New Code/Definition Update)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "2020 Commercial  & Professional Services",
+          "children": [
+            {
+              "industry": "202010 Commercial Services & Supplies",
+              "children": [
+                {
+                  "sub_industry": "20201010 Commercial Printing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "2030 Transportation",
+          "children": [
+            {
+              "industry": "203010 Air Freight & Logistics",
+              "children": [
+                {
+                  "sub_industry": "20301010 Air Freight & Logistics"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "2520 Consumer Durables & Apparel",
+          "children": [
+            {
+              "industry": "252010 Household Durables",
+              "children": [
+                {
+                  "sub_industry": "25201010 Consumer Electronics"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "2530 Consumer Services",
+          "children": [
+            {
+              "industry": "253010 Hotels, Restaurants & Leisure",
+              "children": [
+                {
+                  "sub_industry": "25301010 Casinos & Gaming"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "2550 Consumer Discretionary Distribution & Retail (New Name)",
+          "children": [
+            {
+              "industry": "255010 Distributors",
+              "children": [
+                {
+                  "sub_industry": "25501010 Distributors"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "3020 Food, Beverage & Tobacco",
+          "children": [
+            {
+              "industry": "302010 Beverages",
+              "children": [
+                {
+                  "sub_industry": "30201010 Brewers"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "3030 Household & Personal Products",
+          "children": [
+            {
+              "industry": "303010 Household Products",
+              "children": [
+                {
+                  "sub_industry": "30301010 Household Products"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "3520 Pharmaceuticals, Biotechnology & Life Sciences",
+          "children": [
+            {
+              "industry": "352010 Biotechnology",
+              "children": [
+                {
+                  "sub_industry": "35201010 Biotechnology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "4020 Financial Services (New Name)",
+          "children": [
+            {
+              "industry": "402010 Financial Services (New Name)",
+              "children": [
+                {
+                  "sub_industry": "40201020 Diversified Financial Services (New Name)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "4030 Insurance",
+          "children": [
+            {
+              "industry": "403010 Insurance",
+              "children": [
+                {
+                  "sub_industry": "40301010 Insurance Brokers"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "4520 Technology Hardware & Equipment",
+          "children": [
+            {
+              "industry": "452010 Communications Equipment",
+              "children": [
+                {
+                  "sub_industry": "45201020 Communications Equipment"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "4530 Semiconductors & Semiconductor Equipment",
+          "children": [
+            {
+              "industry": "453010 Semiconductors & Semiconductor Equipment",
+              "children": [
+                {
+                  "sub_industry": "45301010 Semiconductor Materials & Equipment (New Name)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "industry_group": "6020 Real Estate Management & Development (New)",
+          "children": [
+            {
+              "industry": "602010 Real Estate Management & Development (New Code)",
+              "children": [
+                {
+                  "sub_industry": "60201010 Diversified Real Estate Activities (New Code)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "15 Materials",
+      "children": [
+        {
+          "industry_group": "1510 Materials",
+          "children": [
+            {
+              "industry": "151010 Chemicals",
+              "children": [
+                {
+                  "sub_industry": "15101010 Commodity Chemicals"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "20 Industrials",
+      "children": [
+        {
+          "industry_group": "2010 Capital Goods",
+          "children": [
+            {
+              "industry": "201010 Aerospace & Defense",
+              "children": [
+                {
+                  "sub_industry": "20101010 Aerospace & Defense"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "25 Consumer Discretionary",
+      "children": [
+        {
+          "industry_group": "2510 Automobiles & Components",
+          "children": [
+            {
+              "industry": "251010 Automobile Components (New Name)",
+              "children": [
+                {
+                  "sub_industry": "25101010 Automotive Parts & Equipment (New Name)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "30 Consumer Staples",
+      "children": [
+        {
+          "industry_group": "3010 Consumer Staples Distribution & Retail (New Name)",
+          "children": [
+            {
+              "industry": "301010 Consumer Staples Distribution & Retail (New Name)",
+              "children": [
+                {
+                  "sub_industry": "30101010 Drug Retail"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "35 Health Care",
+      "children": [
+        {
+          "industry_group": "3510 Health Care Equipment & Services",
+          "children": [
+            {
+              "industry": "351010 Health Care Equipment & Supplies",
+              "children": [
+                {
+                  "sub_industry": "35101010 Health Care Equipment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "40 Financials",
+      "children": [
+        {
+          "industry_group": "4010 Banks",
+          "children": [
+            {
+              "industry": "401010 Banks",
+              "children": [
+                {
+                  "sub_industry": "40101010 Diversified Banks"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "45 Information Technology",
+      "children": [
+        {
+          "industry_group": "4510 Software & Services",
+          "children": [
+            {
+              "industry": "451020 IT Services",
+              "children": [
+                {
+                  "sub_industry": "45102010 IT Consulting & Other Services"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "50 Communication Services",
+      "children": [
+        {
+          "industry_group": "5010 Telecommunication Services",
+          "children": [
+            {
+              "industry": "501010 Diversified Telecommunication Services",
+              "children": [
+                {
+                  "sub_industry": "50101010 Alternative Carriers"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "55 Utilities",
+      "children": [
+        {
+          "industry_group": "5510 Utilities",
+          "children": [
+            {
+              "industry": "551010 Electric Utilities",
+              "children": [
+                {
+                  "sub_industry": "55101010 Electric Utilities"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "60 Real Estate",
+      "children": [
+        {
+          "industry_group": "6010 Equity Real Estate Investment Trusts (REITs) (New Name)",
+          "children": [
+            {
+              "industry": "601010 Diversified REITs (New Name)",
+              "children": [
+                {
+                  "sub_industry": "60101010 Diversified REITs*"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

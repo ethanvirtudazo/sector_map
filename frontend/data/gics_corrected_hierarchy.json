@@ -1,0 +1,222 @@
+{
+  "root": "GICS",
+  "level": "sectors",
+  "children": [
+    {
+      "sector": "Energy 10",
+      "children": [
+        {
+          "industry_group": "Energy 1010",
+          "children": [
+            {
+              "industry": "Energy Equipment & Services 101010",
+              "children": [
+                {
+                  "sub_industry": "Oil & Gas Drilling 10101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Materials 15",
+      "children": [
+        {
+          "industry_group": "Materials 1510",
+          "children": [
+            {
+              "industry": "Chemicals 151010",
+              "children": [
+                {
+                  "sub_industry": "Commodity Chemicals 15101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Industrials 20",
+      "children": [
+        {
+          "industry_group": "Capital Goods 2010",
+          "children": [
+            {
+              "industry": "Aerospace & Defense 201010",
+              "children": [
+                {
+                  "sub_industry": "Aerospace & Defense 20101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Consumer Discretionary 25",
+      "children": [
+        {
+          "industry_group": "Automobiles & Components 2510",
+          "children": [
+            {
+              "industry": "Automobile Components (New Name) 251010",
+              "children": [
+                {
+                  "sub_industry": "Automotive Parts & Equipment (New Name) 25101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Consumer Staples 30",
+      "children": [
+        {
+          "industry_group": "Consumer Staples Distribution & Retail (New Name) 3010",
+          "children": [
+            {
+              "industry": "Consumer Staples Distribution & Retail (New Name) 301010",
+              "children": [
+                {
+                  "sub_industry": "Drug Retail 30101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Health Care 35",
+      "children": [
+        {
+          "industry_group": "Health Care Equipment & Services 3510",
+          "children": [
+            {
+              "industry": "Health Care Equipment & Supplies 351010",
+              "children": [
+                {
+                  "sub_industry": "Health Care Equipment 35101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Financials 40",
+      "children": [
+        {
+          "industry_group": "Banks 4010",
+          "children": [
+            {
+              "industry": "Banks 401010",
+              "children": [
+                {
+                  "sub_industry": "Diversified Banks 40101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Information Technology 45",
+      "children": [
+        {
+          "industry_group": "Software & Services 4510",
+          "children": [
+            {
+              "industry": "IT Services 451020",
+              "children": [
+                {
+                  "sub_industry": "IT Consulting & Other Services 45102010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Communication Services 50",
+      "children": [
+        {
+          "industry_group": "Telecommunication Services 5010",
+          "children": [
+            {
+              "industry": "Diversified Telecommunication Services 501010",
+              "children": [
+                {
+                  "sub_industry": "Alternative Carriers 50101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Utilities 55",
+      "children": [
+        {
+          "industry_group": "Utilities 5510",
+          "children": [
+            {
+              "industry": "Electric Utilities 551010",
+              "children": [
+                {
+                  "sub_industry": "Electric Utilities 55101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "Real Estate 60",
+      "children": [
+        {
+          "industry_group": "Equity Real Estate Investment Trusts (REITs) (New Name) 6010",
+          "children": [
+            {
+              "industry": "Diversified REITs (New Name) 601010",
+              "children": [
+                {
+                  "sub_industry": "Diversified REITs* 60101010"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sector": "",
+      "children": [
+        {
+          "industry_group": "",
+          "children": [
+            {
+              "industry": "",
+              "children": [
+                {
+                  "sub_industry": "Real estate service providers such as real estate agents, brokers, real estate appraisers and other real estate related services.\n\nThis Sub-Industry includes providers of real estate information, analytics, data and tools.\n\nThis Sub-Industry excludes online real estate platforms that offer mainly information and earn revenue from pay-per-click advertising classified in the Interactive Media & Services Sub-Industry."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
