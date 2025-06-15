@@ -1,5 +1,5 @@
 export default {
-  "root": "GICS",
+  "root": "Market Structure",
   "level": "sectors",
   "children": [
     {

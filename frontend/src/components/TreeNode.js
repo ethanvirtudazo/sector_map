@@ -2,7 +2,7 @@ import React from "react";
 import getAllDescendantPaths from "./utils/getAllDescendentPaths.js";
 
 
-export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpandedNodes }) {
+export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpandedNodes, selectedNodeData }) {
   const nodePath = node.data._nodePath;
   const isExpanded = expandedNodes.has(nodePath);
 
@@ -28,6 +28,8 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
     || node.data.root
     || node.data.name
     || "";
+
+  const isSelected = selectedNodeData && selectedNodeData._nodePath === nodePath;
 
   return (
     <g
@@ -56,6 +58,42 @@ export default function TreeNode({ node, setSelectedNode, expandedNodes, setExpa
           </tspan>
         ))}
       </text>
+      {isSelected && node.data.information && (
+        <foreignObject
+          x={6}
+          y={40}
+          width={150}
+          height={800}
+        >
+          <div
+            style={{
+              background: "#fff",
+              border: "1px solid #ddd",
+              boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+              padding: "10px",
+              borderRadius: "5px",
+              fontSize: "12px",
+              color: "#333",
+            }}
+          >
+            <h4 style={{ margin: "0 0 5px 0" }}>{node.data.sub_industry}</h4>
+            <p style={{ margin: "0", whiteSpace: "pre-line" }}>{node.data.information}</p>
+            <button
+              onClick={(e) => { e.stopPropagation(); setSelectedNode(null); }}
+              style={{                
+                marginTop: "10px",
+                padding: "5px 10px",
+                background: "#f0f0f0",
+                border: "1px solid #ccc",
+                borderRadius: "3px",
+                cursor: "pointer"
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </foreignObject>
+      )}
     </g>
   );
 }
