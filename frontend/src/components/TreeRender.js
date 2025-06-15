@@ -12,8 +12,8 @@ const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedN
   // Calculate translation to position the tree, accounting for its leftmost point (x0)
   // and adding a fixed padding for visual appearance.
   // The initial Y translation is kept fixed to align the root at a specific vertical position.
-  const translateX = (900 / zoomLevel) - dimensions.x0; // Adjusted to move tree further right towards the center
-  const translateY = 600; // Adjusted to move tree further down towards the center
+  const translateX = (600 / zoomLevel) - dimensions.x0; // Further adjusted to move tree significantly to the right
+  const translateY = 100; // Further adjusted to move tree significantly down
 
   // Calculate scaled dimensions for the SVG container
   // These dimensions should be large enough to contain the entire (potentially zoomed) tree
