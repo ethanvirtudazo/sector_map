@@ -40,27 +40,6 @@ const App = () => {
 
     return (
         <>
-            {selectedNode && selectedNode.sub_industry && selectedNode.information && (
-                <div
-                    style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "350px",
-                        height: "100vh",
-                        background: "#fff",
-                        borderRight: "1px solid #ddd",
-                        boxShadow: "2px 0 8px rgba(0,0,0,0.05)",
-                        zIndex: 2000,
-                        padding: "24px",
-                        overflowY: "auto"
-                    }}
-                >
-                    <h3 style={{marginTop: 0}}>{selectedNode.sub_industry}</h3>
-                    <p style={{whiteSpace: "pre-line"}}>{selectedNode.information}</p>
-                    <button onClick={() => setSelectedNode(null)} style={{marginTop: 16}}>Close</button>
-                </div>
-            )}
             <button
                 onClick={handleReset}
                 style={{
@@ -82,10 +61,8 @@ const App = () => {
                 height: "100vh",
                 overflow: "auto",
                 position: "relative",
-                marginLeft: selectedNode && selectedNode.sub_industry && selectedNode.information ? 350 : 0
             }}> {/* Adjust margin when panel is open */}
                 <TreeRender 
-                    handleReset={handleReset}
                     selectedNode={selectedNode}
                     setSelectedNode={setSelectedNode}
                     expandedNodes={expandedNodes}

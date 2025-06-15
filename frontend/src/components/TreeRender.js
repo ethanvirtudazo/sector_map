@@ -4,7 +4,7 @@ import useFilteredTree from "./useFilteredTree";
 import * as d3 from "d3";
 import TreeNode from "./TreeNode";
 
-const TreeRender = ({ handleReset, selectedNode, setSelectedNode, expandedNodes, setExpandedNodes, zoomLevel }) => {
+const TreeRender = ({ selectedNode, setSelectedNode, expandedNodes, setExpandedNodes, zoomLevel }) => {
   const svgRef = useRef();
   const gRef = useRef();
   const { root, dimensions } = useFilteredTree(expandedNodes);
@@ -18,16 +18,10 @@ const TreeRender = ({ handleReset, selectedNode, setSelectedNode, expandedNodes,
   // Calculate scaled dimensions for the SVG container
   // These dimensions should be large enough to contain the entire (potentially zoomed) tree
   const scaledWidth = (dimensions.width + 200) * zoomLevel; // Add extra padding to width before scaling
-  const scaledHeight = (dimensions.height + 100) * zoomLevel; // Add extra padding to height before scaling
+  const scaledHeight = (dimensions.height + 850) * zoomLevel; // Add extra padding to height before scaling, accounting for info card
 
   return (
     <div style={{ width: "100vw", height: "100vh", overflow: "auto", position: "relative" }}>
-      <button
-        onClick={handleReset}
-        style={{ position: "absolute", top: 10, left: 10, zIndex: 1000 }}
-      >
-        Reset Tree
-      </button>
       <svg ref={svgRef} width={scaledWidth} height={scaledHeight} style={{ flex: 1 }}>
         {/* Apply translation and scale to the main group element */}
         <g ref={gRef} transform={`translate(${translateX * zoomLevel}, ${translateY * zoomLevel}) scale(${zoomLevel})`}>
@@ -49,6 +43,7 @@ const TreeRender = ({ handleReset, selectedNode, setSelectedNode, expandedNodes,
               setSelectedNode={setSelectedNode}
               expandedNodes={expandedNodes}
               setExpandedNodes={setExpandedNodes}
+              selectedNodeData={selectedNode}
             />
           ))}
         </g>
