@@ -1043,7 +1043,7 @@ export default {
               "children": [
                 {
                   "sub_industry": "50203010 Interactive Media & Services",
-                  "information": "Companies engaging in content and information creation or distribution through proprietary platforms, where revenues are derived primarily through pay-per-click advertisements.\n\nThis Sub-Industry includes search engines, social media & networking platforms, online classifieds, online review companies and Internet TV companies. It also includes online video and content sharing companies.\n\nThis Sub-Industry excludes companies that derive a commission upon a consumer’s purchase or subscription to another company’s product or service, classified in respective Sub-Industries, such as online travel related sites selling a service or product directly to end consumers, which are classified in the Hotels Resorts & Cruise Lines Sub-Industry."
+                  "information": "Companies engaging in content and information creation or distribution through proprietary platforms, where revenues are derived primarily through pay-per-click advertisements.\n\nThis Sub-Industry includes search engines, social media & networking platforms, online classifieds, online review companies and Internet TV companies. It also includes online video and content sharing companies.\n\nThis Sub-Industry excludes companies that derive a commission upon a consumer's purchase or subscription to another company's product or service, classified in respective Sub-Industries, such as online travel related sites selling a service or product directly to end consumers, which are classified in the Hotels Resorts & Cruise Lines Sub-Industry."
                 }
               ]
             }
@@ -1235,10 +1235,6 @@ export default {
                 {
                   "sub_industry": "60201040 Real Estate Services (New Code)",
                   "information": "Real estate service providers such as real estate agents, brokers, real estate appraisers and other real estate related services.\n\nThis Sub-Industry includes providers of real estate information, analytics, data and tools.\n\nThis Sub-Industry excludes online real estate platforms that offer mainly information and earn revenue from pay-per-click advertising classified in the Interactive Media & Services Sub-Industry."
-                },
-                {
-                  "sub_industry": "60201040 Real Estate Services (New Code)",
-                  "information": "*A company will be classified as a REIT, if it mentions in an official document that it operates as a REIT (as per the country's effective legal REIT structure). In general, to be classified as a REIT, a company must have a Property Trust Structure (either as a stand-alone trust or stapled), with primary investments in real estate or mortgage loans and where majority of the company’s taxable Income is paid out as a dividend. If stapled, it should derive at least 60% of revenue from the trust arm. Asset holdings break down and net earnings are also considered while determining the GICS classification, in general."
                 }
               ]
             }
